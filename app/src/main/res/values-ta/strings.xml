@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">லிஃப்ட்</string>
+    <string name="textView20">பயன்பாடு அறிவோம்</string>
+    <string name="textView17">."லிஃப்ட்டைப்பற்றி” என்ற உருவச்சின்னத்தைத் தொட, லிஃப்டைப் பற்றியும், பயன்பாட்டைப் பற்றியும், சாற்றும் துறப்பும், மற்றும் தொடர்பு முகவரியும் கிட்டும்</string>
+    <string name="textView14"> .லிஃப்ட் செயலியின் மாத புத்தகத்தின் ஐந்து பிரிவுகளும், காட்சிவகைப் பட்டியாக காட்டப்பட்டுள்ளதை தொட, அவற்றை காணலாம்;கருவியில் இணைய இனைப்பு இருக்க வேண்டியது அவசியம்.</string>
+    <string name="textView18">. நூலக உருவசின்னத்தை தொட்டு, வருடத்தை தேர்ந்தெடுத்து, அந்தந்த மாத லிஃப்டை பெறலாம்.</string>
+    <string name="textView16">. லிஃப்ட் உருவச்சின்னத்தை தொட, கீழ்விரியும் பட்டியலில், லிஃப்ட் செயலியைப் பற்றிய தகவல்களும், நூலகத்தில் ஜூலை, 2013 முதலான பழைய மாதங்களின் லிஃப்டும், தேடல் வசதியும் காணப்பெறும்.</string>
+    <string name="textView19">.தேடலில், சட்டம் மற்றும் வழக்குகளில் உள்ள ஆங்கில வார்த்தைகளை உள்ளீடு செய்து தேடலாம்.</string>
+    <string name="textView15">. “தமிழ்” அல்லது “English” என்ற உருவச்சின்னத்தைத் தொட, தகவல்கள் அனைத்தும் அவ்வாறே மொழிமாற்றம் அடையும்</string>
+    <string name="textView2">M/s LIFT INDIA</string>
+    <string name="textView3">சாய் பரத் , இளன்,</string>
+    <string name="textView4">வழக்கறிஞர்கள்,</string>
+    <string name="textView5">2வது மாடி,</string>
+    <string name="textView6">வேன்கார்டு இல்லம்,</string>
+    <string name="textView7">148/48, மூர் தெரு / 2வது லேன் பீச்,</string>
+    <string name="textView8">சென்னை - 600001,</string>
+    <string name="textView9">Email: lawinfingertips@gmail.com</string>
+    <string name="textView10">தொடர்புகொள்</string>
+    <string name="textView12">வியாபார நோக்கிற்க்கு அல்லாமல், உங்களுடைய சொந்த, தொழில்சார்ந்த உபயோகத்திற்க்காக, மாதாந்திர லிஃப்டில் உள்ளவைகளை அச்சுபிரதி எடுக்க, நகல் மற்றும் படி எடுத்து உபயோகித்துக்கொள்ள லிஃப்ட் உங்களை அனுமதிக்கின்றது. லிஃப்டின் பெயர், உருவச்சிம், தனித்துவமான நடை, லிஃபிடிற்க்கு சொந்தமானதாகும். மற்றவர்கள் உபயோகிக்க தடை செய்யப்படுகிறது.</string>
+    <string name="textView11">“லிஃப்ட்” செயலி, இந்திய சட்டத்தைப்பற்றியது ஆகும். மக்களுக்கும், வழக்கறிஞர்களுக்கும், தேவையான சட்ட தகவல்களை அறிவித்தலே லிஃப்டின் நோக்கம். ஒவ்வொரு மாதமும், தெரிவு செய்யப்பட்ட, இந்திய மற்றும் தமிழ்நாடு மாநில அரசின் புதிய சட்டங்கள் மற்றும் உச்சநீதிமன்ற, சென்னை உயர்நீதிமன்ற வழக்குகளை ஒரு புதிய ஒழுங்குடன், அனைவருக்கும் ஏற்ற முறையில் லிஃப்ட் வழங்குகிறது. மேலும், கருத்துமேடை என்ற ஒரு பிரிவு பல்வேறு தகவல்களை தாங்கி வருகிறது. லிஃப்டில் அனைத்தும் தமிழ், ஆங்கிலம் ஆகிய இரு மொழிகளிலும் வழங்கப்படுகிறது. பயனாளிகளின் தேவைகளை நன்கு அறிந்த அனுபவம் வாய்ந்த தொழில்முறை வழக்கறிஞர்களால் லிஃப்ட் இயற்றப்படுகிறது.</string>
+    <string name="textView13">லிஃப்டைப் பற்றி</string>
+    <string name="textView25">நோக்கம்  நிபந்தனைகள்</string>
+    <string name="textView21">லிப்ட் பறைசாற்றுகிறது:</string>
+    <string name="textView22">சமூகம் சுமூகமாகவாழ சட்டமும் தீர்வுகளும் இன்றியமையாதவை. நீதி வழங்கப்பட, சட்டம் பற்றிய விழிப்புணர்வும், அறிநிலையும் அனைவருக்கும் வேண்டும். திறன்பேசிகளும், பல்வேறு மென் ஒருங்குகளும் அனைவராலும் இவ்வின்றியமையாத தேவைக்காகவும் பயன்படுத்தப்படவேண்டும், இதன் மூலம், எங்கும், எப்போதும் சட்ட தகவல்கள் அனைவருக்கும் கிட்டி யாவருக்கும் நீதி கிடைத்து எங்கும் அமைதி நிலவ வேண்டும்.</string>
+    <string name="textView23">துறப்புரை:</string>
+    <string name="textView24">லிஃப்டில் வழங்கப்படும் அனைத்து தகவல்களும் சிறந்த தொழில்முறை வழக்கறிஞர்களைக் கொண்டு, கவணமுடன் வழங்கப்படும் பொழுதிலும்,ஃப்ச் தகவல்கள் அவர்களின் புரிதல் மற்றும் கருத்தின்பாற்பட்டது; எனவே, சட்டங்கள் மற்றும் தீர்ப்புக்களின் அசலைப்படித்து முடிவெடுக்க வேண்டும். லிப்டில் வரும் சொற்கள் மற்றும் செற்றொடர்கள் அசல் பணுவலில் மாறுபடலாம்; தற்செயலாக சில பிழைகளும் வர வாய்ப்புள்ளது. இதனால் வரும் எவ்வித இழப்புக்களுக்கும் லிஃப்ட் பொருப்பல்ல. எனவே, லிஃப்டில் தரப்படும் தகவல்களை அதனுடைய அசல் ஆவணங்களை படித்தும் அறிந்தும் முடிவெடுகக பயனாளர்கள் ஒப்புக்கொள்கிறார்கள். லிஃப்டில் ஒவ்வொருமாதமும், அனைத்து சட்ட மற்றும் தீர்ப்பு தகவல்களும் வழங்கப்படுவது இல்லை. தெரிவு செய்யப்பட்ட தகவல்கள் மட்டுமே வழங்கப்படுகின்றன.</string>
+
+
+
+
+
+
+
+    <string name="febcentral">பிப்ரவரி</string>
+
+    <string-array name="nav_drawer_items">
+
+
+        <item>லிஃப்ட் முகப்ப</item>
+        <item>லிஃப்ட் நூலகம்</item>
+        <item>லிஃப்டைப்  பற்றி </item>
+        <item>தொடர்புகொள்ள</item>
+        <item>சாற்றும் துறப்பும்</item>
+        <item>பயன்பாடு அறிவோம்</item>
+
+    </string-array>
+    <array name="nav_drawer_icons">
+    </array>
+    <string name="string_month">பிப்ரவரி </string>
+    <string name="string_central">மத்திய  சட்டம்</string>
+    <string name="string_tamil">தமிழ்நாடு மாநில சட்டம் </string>
+    <string name="string_supreme">உச்ச நீதிமன்ற தீர்ப்புகள்</string>
+    <string name="string_madras">சென்னை உயர் நீதிமன்ற தீர்ப்புகள்</string>
+    <string name="string_forum">கருத்து மேடை </string>
+
+    <string name="central_name">பெயர்  :</string>
+    <string name="central_act">சட்ட எண்  :</string>
+    <string name="central_enact">இயற்றியது  :</string>
+    <string name="central_president">குடியரசு தலைவரின் இசைவு நாள்  :</string>
+    <string name="central_publish">வெளியிடப்பட்டது :</string>
+    <string name="central_force">சட்டம் அமலுக்கு வந்த நாள் : </string>
+    <string name="central_salient">சட்டத்தைப்பற்றி :</string>
+    <string name="central_brief">என்ன  செய்கிறது   இந்த சட்டம் :</string>
+    <string name="central_text">முழு சட்டத்தையும்பார்க்க :</string>
+
+    <string name="tamil_name">பெயர்  :</string>
+    <string name="tamil_act">சட்ட எண்  :</string>
+    <string name="tamil_enact">இயற்றியது  :</string>
+    <string name="tamil_governor">ஆளுநரின் இசைவுநாள்  :</string>
+    <string name="tamil_publish">வெளியிடப்பட்டது :</string>
+    <string name="tamil_force">சட்டம் அமலுக்கு வந்த நாள் : </string>
+    <string name="tamil_salient">சட்டத்தைப்பற்றி :</string>
+    <string name="tamil_brief">என்ன  செய்கிறது   இந்த சட்டம் :</string>
+    <string name="tamil_text">முழு சட்டத்தையும்பார்க்க :</string>
+
+    <string name="supreme_title">தலைப்பு :</string>
+    <string name="supreme_context">சூழல் :</string>
+    <string name="supreme_questn">கேள்வி  :</string>
+    <string name="supreme_ansr">பதில் :</string>
+    <string name="supreme_ref">குறிப்பு :</string>
+    <string name="supreme_text">முழு தீர்ப்பையும் பார்க்க :</string>
+
+    <string name="madras_title">தலைப்பு :</string>
+    <string name="madras_context">சூழல் :</string>
+    <string name="madras_questn">கேள்வி  :</string>
+    <string name="madras_ansr">பதில் :</string>
+    <string name="madras_ref">குறிப்பு :</string>
+    <string name="madras_text">முழு தீர்ப்பையும் பார்க்க :</string>
+
+    <string name="forum_thought">இந்த மாத சிந்தனை :</string>
+    <string name="forum_content">ஜூனியர் :</string>
+
+    <string name="forum_team">லிஃப்ட் குழு </string>
+
+
+    <string name="forum_all">அன்புடையீர் !</string>
+    <string name="forum_team3">லிஃப்ட் குழு </string>
+
+    <string name="lang">English</string>
+
+
+    <string name="lawfull">இங்கே தொடவும்</string>
+    <string name="tamilfulltext">இங்கே தொடவும்</string>
+
+
+    <string name="texttouch">இங்கே தொடவும்</string>
+    <string name="texthigh">இங்கே தொடவும்</string>
+
+</resources>

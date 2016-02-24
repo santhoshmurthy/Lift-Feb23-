@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp">
+        <RelativeLayout
+            android:id="@+id/frame1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rectangle_box"
+            android:layout_marginTop="15dp">
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/thoughttext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thought For the MONTH"
+                android:textAllCaps="false"
+                android:textColor="#800000"
+                android:textSize="20sp" />
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/juniortext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="JUNIOR"
+                android:textAllCaps="false"
+                android:textColor="#1c1c1c"
+                android:textAlignment="gravity"
+                android:lineSpacingExtra="4dp"
+                android:layout_below="@+id/thoughttext"
+                android:textSize="17sp"
+                android:layout_marginTop="10dp"
+          />
+
+
+            <com.LAW.lift.model.MyTextviews
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="lIFT Team"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:id="@+id/authors"
+                android:singleLine="true"
+                android:layout_below="@+id/juniortext"
+                android:layout_marginTop="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+
+       />
+
+
+
+
+
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+</RelativeLayout>

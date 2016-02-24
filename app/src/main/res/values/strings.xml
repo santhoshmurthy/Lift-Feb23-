@@ -1,0 +1,155 @@
+<resources>
+    <string name="app_name">Lift</string>
+    <string name="drawer_open">Slider Menu Opened</string>
+    <string name="drawer_close">Slider Menu Closed</string>
+    <string name="Home">home</string>
+    <string name="contactus">contactus</string>
+    <string name="AboutUs">About Us</string>
+    <string name="HowTouse">how to use</string>
+    <string name="Disclaimer">Disclaimer</string>
+
+    <string name="textView20">How To Use</string>
+    <string name="textView17">. LIFT icon in the drop down provides information About the App, How to Use, Aim and Disclaimer and Contact.</string>
+    <string name="textView14">.  All the five sections of the Monthly LIFT content are in the main display.  Users can touch and access the same. Content will be displayed if only your device is connected to the internet.</string>
+    <string name="textView18">. <b>LIBRARY</b> icon, contains all the old volumes from July, 2013.  Touch the icon, then choose the year and then touch the volume to read.</string>
+    <string name="textView16">. Information about the App,<b>Library</b> or <b>Search</b>options are available by touching the drop-down menu icon.</string>
+<string name="textView19">.SEARCH icon enables searching the legislation and case law sections by any key word. Touch the icon, then select the section and then key in the word for search and you will find the relevant pages displayed.</string>
+    <string name="textView15">. Touching the icon <b> English </b> or <b>தமிழ் </b>will change the language of the entire content accordingly.</string>
+    <string name="textView2">M/s LIFT INDIA</string>
+    <string name="textView3">C/O M/s.sai,Bharat,ilan</string>
+    <string name="textView4">Advocates</string>
+    <string name="textView5">II FLOOR</string>
+    <string name="textView6">Vanguard House</string>
+    <string name="textView7">148/48,Moore Street/2nd Lane Beach,</string>
+    <string name="textView8">Chennai-600001</string>
+    <string name="textView9">Email: lawinfingertips@gmail.com</string>
+    <string name="textView10">Contact Us</string>
+    <string name="textView12">LIFT grants permission to its users to copy, reproduce, and print or use the content of all the five sections of the ‘LIFT of the Month’ for their professional / personal use, except commercial exploitation. LIFT INDIA only reserves its rights of the name, logo and its one-of-a-kind format.</string>
+    <string name="textView11">LIFT (Law in Finger Tips) is easy access to Indian Law. With a strong and crystal clear mission to provide greatly useful legal information in a well cut-out and simple, yet proficient and professional manner to the needs of experts as well as those of the general public, every month LIFT presents carefully and viably selected Legislations of the Union of India and the State of Tamil Nadu, decided cases of the Supreme Court of India and the Madras High Court in an exceptional style. Furthermore it contains a ‘Forum’ section containing related information and tips in an interesting fashion. Every section of the content made available, is written by highly experienced professionals who are very much in active practice and hence understand the needs of all users, thereby making this app extremely useful and highly trustable. The fact that content is available in both English and Tamil, for free, doubles the already high utility and value of this app.</string>
+    <string name="textView13">About Us</string>
+    <string name="textView25">Proclaimer and Disclaimer</string>
+    <string name="textView21">LIFT Proclaims :</string>
+    <string name="textView22">A society requires a good legal system to exist and function smoothly; and the people of that society require and deserve legal awareness and the resultant access; which can be created only by provision of updated dissemination of relevant information. We, here at LIFT believe that Smart Phones, Tablets and the Internet are the perfect media for this propagation. LIFT, a free Legal App, joins hands with you and the law in the March ahead. LIFT is Legal Information Fast Track.</string>
+    <string name="textView23">LIFT Disclaims :</string>
+    <string name="textView24">The content of LIFT is as per the perspective and understanding of the authors, in the words and phrases of their choice; Miniscule human errors are possible; Users are to apply and use LIFT material entirely on their own prudence and judgment; LIFT provides only select legal material and is not exhaustive.</string>
+
+
+<string name="spinner1">select</string>
+
+
+
+
+    <string-array name="nav_drawer_items">
+
+
+
+
+
+        <item>Home</item>
+        <item>Library</item>
+        <item>About Us</item>
+        <item>Contact Us</item>
+        <item> Aim and Disclaimer</item>
+        <item>How To Use</item>
+
+
+
+
+
+    </string-array>
+
+<string name="febcentral">Feburary</string>
+    <string name="string_central">Central Legislation</string>
+    <string name="string_tamil">Tamilnadu Legislation</string>
+    <string name="string_supreme">Supreme Court</string>
+    <string name="string_madras">Madras High Court</string>
+    <string name="string_forum">Forum</string>
+
+    <string name="logout">Logout</string>
+    <string name="string_month">February:</string>
+    <string name="central_name">Name:</string>
+    <string name="central_act">Act No:</string>
+    <string name="central_enact">Enacted by:</string>
+    <string name="central_president">Received Assent of the President on:</string>
+    <string name="central_publish">Published in:</string>
+    <string name="central_force">Came into Force:</string>
+    <string name="central_salient">Salient Features:</string>
+    <string name="central_brief">Brief Details:</string>
+    <string name="central_text">For Full Text:</string>
+
+    <string name="tamil_name">Name:</string>
+    <string name="tamil_act">Act No:</string>
+    <string name="tamil_enact">Enacted by:</string>
+    <string name="tamil_governor">Received Assent of the Governor on:</string>
+    <string name="tamil_publish">Published in:</string>
+    <string name="tamil_force">Came into Force:</string>
+    <string name="tamil_salient">Salient Features:</string>
+    <string name="tamil_brief">Brief Details:</string>
+    <string name="tamil_text">For Full Text:</string>
+
+    <string name="supreme_title">Title:</string>
+    <string name="supreme_context">Context:</string>
+    <string name="supreme_questn">Question:</string>
+    <string name="supreme_ansr">Answer:</string>
+    <string name="supreme_ref">Reference:</string>
+    <string name="supreme_text">For Full Text:</string>
+
+    <string name="madras_title">Title:</string>
+    <string name="madras_context">Context:</string>
+    <string name="madras_questn">Question:</string>
+    <string name="madras_ansr">Answer:</string>
+    <string name="madras_ref">Reference:</string>
+    <string name="madras_text">For Full Text:</string>
+
+    <string name="forum_thought">Thought For the Month</string>
+    <string name="forum_jun">Junior:</string>
+    <string name="forum_sen">Senior:</string>
+    <string name="forum_team">LIFT TEAM</string>
+
+    <string name="forum_judic">Judicial Appoinments:</string>
+    <string name="forum_junior">Junior:</string>
+    <string name="forum_senior">Senior</string>
+    <string name="forum_team2">LIFT TEAM</string>
+
+
+    <string name="forum_all">Dear All,</string>
+    <string name="forum_team3">LIFT TEAM</string>
+
+
+    <string name="jan_mnth">January </string>
+    <string name="feb_mnth">February </string>
+    <string name="mar_mnth">March </string>
+    <string name="apr_mnth">April </string>
+    <string name="may_mnth">May </string>
+    <string name="jun_mnth">June </string>
+    <string name="july_mnth">July </string>
+    <string name="aug_mnth">August </string>
+    <string name="sep_mnth">September </string>
+    <string name="oct_mnth">்October </string>
+    <string name="nov_mnth">November </string>
+    <string name="dec_mnth">December </string>
+
+
+
+
+
+
+    <string name="lang">Tamil</string>
+
+
+    <string name="lawfull">Touch here</string>
+
+  <string name="tamilfulltext">Touch here</string>
+
+  <string name="texttouch">Touch here</string>
+    <string name="texthigh">Touch here</string>
+
+  <array name="nav_drawer_icons">
+
+
+
+  <!-- <item>@drawable/earn</item>&ndash;&gt;-->
+       <!-- &lt;!&ndash;<item>@drawable/sa</item>&ndash;&gt;-->
+    </array>
+
+</resources>

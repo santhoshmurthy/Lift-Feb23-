@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <RelativeLayout
+            android:id="@+id/frame1"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rectangle_box"
+            android:layout_below="@+id/text1"
+            android:layout_marginTop="10dp">
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tamil_name"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:textAllCaps="false"
+                android:textColor="#800000"
+                android:textSize="20sp" />
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/tamilname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="fffffffffffffffffffffff"
+                android:layout_below="@+id/text2"
+                android:textAllCaps="false"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="#1c1c1c"
+                android:layout_marginTop="4dp"
+                android:textAlignment="gravity"
+                android:lineSpacingExtra="4dp"
+                android:textSize="16sp" />
+
+
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tamil_act"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_below="@+id/tamilname"
+                android:textColor="#800000"
+                android:textSize="20sp" />
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/tamilactno"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ffddddrffffffffffffffffffff"
+                android:textAllCaps="false"
+                android:layout_below="@+id/text3"
+                android:textColor="#1c1c1c"
+                android:layout_marginTop="4dp"
+                android:textAlignment="gravity"
+                android:lineSpacingExtra="4dp"
+                android:textSize="17sp" />
+
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/text4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tamil_enact"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/tamilactno"
+                android:textColor="#800000"
+                android:textSize="20sp" />
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/tamilenactedby"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="gggggg"
+                android:layout_below="@+id/text4"
+                android:textAllCaps="false"
+                android:layout_marginTop="4dp"
+                android:textColor="#1c1c1c"
+                android:textAlignment="gravity"
+                android:lineSpacingExtra="4dp"
+                android:textSize="17sp" />
+
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/text5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tamilenactedby"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/tamil_governor"
+                android:textColor="#800000"
+                android:textSize="20sp" />
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/tamilreceived"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="gggg"
+                android:layout_below="@+id/text5"
+                android:textAllCaps="false"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="#1c1c1c"
+                android:layout_marginTop="4dp"
+                android:textAlignment="gravity"
+                android:lineSpacingExtra="4dp"
+                android:textSize="17sp" />
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/text6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tamilreceived"
+                android:text="@string/tamil_publish"
+                android:layout_marginTop="15dp"
+                android:textColor="#800000"
+                android:textSize="20sp" />
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/tamilpublished"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="rrrrrr"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_below="@+id/text6"
+                android:textAllCaps="false"
+                android:textColor="#1c1c1c"
+                android:layout_marginTop="4dp"
+                android:textAlignment="gravity"
+                android:lineSpacingExtra="4dp"
+                android:textSize="17sp" />
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/text7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tamil_force"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_below="@+id/tamilpublished"
+                android:textColor="#800000"
+                android:textSize="20sp" />
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/tamilcame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="fffff"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_below="@+id/text7"
+                android:textAllCaps="false"
+                android:textColor="#1c1c1c"
+                android:layout_marginTop="4dp"
+                android:textAlignment="gravity"
+                android:lineSpacingExtra="4dp"
+                android:textSize="17sp" />
+
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/text8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tamilcame"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/tamil_salient"
+                android:textColor="#800000"
+                android:textSize="20sp" />
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/tamilsalient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_below="@+id/text8"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:textAllCaps="false"
+                android:textColor="#1c1c1c"
+                android:textAlignment="gravity"
+                android:lineSpacingExtra="4dp"
+                android:textSize="17sp" />
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/text9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tamilsalient"
+                android:text="@string/tamil_brief"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="#800000"
+                android:textSize="20sp" />
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/tamilbrief"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_below="@+id/text9"
+                android:textAllCaps="false"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="#000000"
+                android:textSize="17sp" />
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/text10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tamilbrief"
+                android:text="@string/tamil_text"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#800000"
+                android:textSize="20sp" />
+
+            <!-- <TextView
+                 android:id="@+id/lawfulltext"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:text=""
+                 android:textAllCaps="false"
+                 android:textColor="#000000"
+                 android:textSize="15sp" />
+ -->
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/tamilfulltext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tamilfulltext"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_below="@+id/text10"
+                android:textColor="#0000ff"
+                android:textSize="17sp" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
+

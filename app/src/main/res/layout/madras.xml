@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp">
+
+        <RelativeLayout
+            android:id="@+id/frame1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_box"
+            android:layout_below="@+id/text1"
+            android:layout_marginTop="5dp">
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/titlehigh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/madras_title"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:textAllCaps="false"
+                android:textColor="#800000"
+                android:textSize="20sp" />
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/highpara"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:textAllCaps="false"
+                android:layout_below="@+id/titlehigh"
+                android:textColor="#1c1c1c"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="3dp"
+                android:textAlignment="gravity"
+                android:lineSpacingExtra="4dp"
+                android:textSize="17sp"
+                />
+
+
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/textcontext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/madras_context"
+                android:textAllCaps="false"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="#800000"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/highpara"
+                android:textSize="20sp"
+                />
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/contexthigh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:layout_below="@+id/textcontext"
+                android:textAllCaps="false"
+
+                android:textColor="#1c1c1c"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="3dp"
+                android:textAlignment="gravity"
+                android:lineSpacingExtra="4dp"
+                android:textSize="17sp"
+                />
+
+
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/textquestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/madras_questn"
+                android:layout_marginTop="15dp"
+                android:textAllCaps="false"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_below="@id/contexthigh"
+                android:textColor="#800000"
+                android:textSize="20sp"
+                />
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/questionhigh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:textAllCaps="false"
+                android:layout_marginTop="3dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_below="@+id/textquestion"
+                android:textColor="#1c1c1c"
+                android:textAlignment="gravity"
+                android:lineSpacingExtra="4dp"
+                android:textSize="17sp"
+
+                />
+
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/textanswer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/madras_ansr"
+                android:textAllCaps="false"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_below="@+id/questionhigh"
+                android:textColor="#800000"
+                android:textSize="20sp"
+                />
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/answerhigh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:textAllCaps="false"
+                android:layout_below="@+id/textanswer"
+                android:textColor="#1c1c1c"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:textAlignment="gravity"
+                android:layout_marginTop="3dp"
+                android:lineSpacingExtra="4dp"
+                android:textSize="17sp"
+
+               />
+
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/textreference"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/madras_ref"
+                android:textAllCaps="false"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/answerhigh"
+                android:textColor="#800000"
+                android:textSize="20sp"
+                />
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/referencehigh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:textAllCaps="false"
+                android:textColor="#1c1c1c"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="3dp"
+                android:textAlignment="gravity"
+                android:lineSpacingExtra="4dp"
+                android:layout_below="@+id/textreference"
+                android:textSize="17sp"
+                />
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/textfull"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/madras_text"
+                android:textAllCaps="false"
+                android:textColor="#800000"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/referencehigh"
+                android:textSize="20sp"
+                />
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/texthigh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/texthigh"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="3dp"
+                android:layout_below="@id/textfull"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:textSize="17dp"/>
+
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
+
