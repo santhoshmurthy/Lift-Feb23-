@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.LAW.lift.R;
 import com.LAW.lift.adapter.CardArrayAdapter;
@@ -38,7 +39,10 @@ import org.json.JSONObject;
 public class Supremecourt extends Activity {
     ImageView back;
     TextView textsupreme;
+
     public static String[] get_legislation;
+    public static String[] succes;
+    public static String[] error;
     public static String[] book_name;
     public static String[] book_icon;
     public static String[] year;
@@ -52,6 +56,7 @@ public class Supremecourt extends Activity {
     public static String[] reference;
     public static String[] url;
     String jsonResponse;
+    String success;
     String titlepara, contextpara, questionpara, answerpara, referencepara, texttouch;
     ProgressDialog pDialog;
     AlertDialogManager alert = new AlertDialogManager();
@@ -60,7 +65,9 @@ public class Supremecourt extends Activity {
     String supreme="&type=sc";
     ListView listView;
     String bookid;
+    String bookname;
     String months;
+    private JSONObject person;
     private supremeadapter ride;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,11 +98,13 @@ public class Supremecourt extends Activity {
 
             bookid = extras.getString("book_id");
             months=extras.getString("month");
-            Log.d("supreme",bookid +months);
+
+
+            Log.d("supreme",bookid +months+bookname);
             //Toast.makeText(Booking.this,sname+"\n"+slat+"\n"+slong, Toast.LENGTH_SHORT).show();
         }
         textsupreme.setText(months);
-        if(MainActivity.Language.equals("Tamil")){
+        if(MainActivity.Language.equals("தமிழ்")){
             urlJsonArry = "http://www.lawinfingertips.com/webservice/Lift_Final_Tamil/get_case_law.php?book_id=";
             supreme="&type=sc";
         }
@@ -153,43 +162,73 @@ public class Supremecourt extends Activity {
                                 answer = new String[jsonMainArr.length()];
                                 reference = new String[jsonMainArr.length()];
                                 url = new String[jsonMainArr.length()];
+                                succes= new String[jsonMainArr.length()];
+
+                                Log.e("Hiistory"," succes "+ succes);
+                                if(success=="no"){
+                                    Toast.makeText(Supremecourt.this, "The law content for the specified Supreme Court is not available.", Toast.LENGTH_SHORT).show();
+                                }else {
+                                    for (int i = 0; i < jsonMainArr.length(); i++) {
 
 
-                                for (int i = 0; i < jsonMainArr.length(); i++) {
+                                        person = (JSONObject) jsonMainArr.get(i);
 
-                                    JSONObject person= (JSONObject) jsonMainArr.get(i);
-
-                                    book_name[i]=person.getString("book_name");
-                                    book_icon[i] = person.getString("book_icon");
-                                    year[i] = person.getString("year");
-                                    month[i] = person.getString("month");
-                                    court[i] = person.getString("court");
-                                    title[i]=person.getString("title");
-                                    context[i] = person.getString("context");
-                                    question[i] = person.getString("question");
-                                    answer[i] = person.getString("answer");
-                                    reference[i] = person.getString("reference");
-                                    url[i]=person.getString("url");
+                                        book_name[i] = person.getString("book_name");
+                                        book_icon[i] = person.getString("book_icon");
+                                        year[i] = person.getString("year");
+                                        month[i] = person.getString("month");
+                                        court[i] = person.getString("court");
+                                        title[i] = person.getString("title");
+                                        context[i] = person.getString("context");
+                                        question[i] = person.getString("question");
+                                        answer[i] = person.getString("answer");
+                                        reference[i] = person.getString("reference");
+                                        url[i] = person.getString("url");
 
 
-                                    titlepara = person.getString("title");
-                                    contextpara = person.getString("context");
-                                    questionpara = person.getString("question");
-                                    answerpara = person.getString("answer");
-                                    referencepara= person.getString("reference");
-                                    texttouch= person.getString("url");
-                                    months=person.getString("month");
+                                        titlepara = person.getString("title");
+                                        contextpara = person.getString("context");
+                                        questionpara = person.getString("question");
+                                        answerpara = person.getString("answer");
+                                        referencepara = person.getString("reference");
+                                        texttouch = person.getString("url");
+                                        months = person.getString("month");
 
-                                    supremecard supremecard = new supremecard(titlepara, contextpara, questionpara, answerpara, referencepara, texttouch);
-                                    ride.add(supremecard);
 
+                                        supremecard supremecard = new supremecard(titlepara, contextpara, questionpara, answerpara, referencepara, texttouch);
+                                        ride.add(supremecard);
+
+                                    }
                                 }
-
                                 if (pDialog.isShowing())
                                     pDialog.dismiss();
                                 //mTvResult.setText(jsonResponse);
 
                             } catch (JSONException e) {
+
+                                try {
+                                    success = person.getString("success");
+                                } catch (JSONException e1) {
+                                    e1.printStackTrace();
+                                }
+                                Log.e("History", "success" + success);
+                                if (success.contains("no")) {
+                                    AlertDialog.Builder helpBuilder = new AlertDialog.Builder(Supremecourt.this, AlertDialog.THEME_HOLO_LIGHT);
+                                    helpBuilder.setTitle("No Content");
+                                    helpBuilder.setMessage("No Content available for Supremecourt");
+                                    helpBuilder.setPositiveButton("OK",
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    dialog.dismiss();
+                                                    Intent checkIntent = new Intent(Supremecourt.this, MainActivity.class);
+                                                    startActivity(checkIntent);
+                                                    finish();
+                                                }
+                                            });
+                                    AlertDialog helpDialog = helpBuilder.create();
+                                    helpDialog.show();
+                                }
+
                                 e.printStackTrace();
                                 LiftApplication.getInstance().trackException(e);
 

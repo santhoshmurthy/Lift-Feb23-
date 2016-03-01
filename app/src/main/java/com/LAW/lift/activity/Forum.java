@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.LAW.lift.R;
 import com.LAW.lift.adapter.forumadapter;
@@ -57,7 +58,9 @@ MyTextviews febtext;
     String urlJsonArry = "http://www.lawinfingertips.com/webservice/Lift_Final/get_thoughts.php?book_id=";
     ListView listView;
 String  bookid;
+    String success;
     String months;
+    private  JSONObject person;
     private forumadapter ride3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,7 +100,7 @@ String  bookid;
 
         ride3 = new forumadapter(Forum.this, R.layout.forum);
         listView.setAdapter(ride3);
-        if(MainActivity.Language.equals("Tamil")){
+        if(MainActivity.Language.equals("தமிழ்")){
             urlJsonArry = "http://www.lawinfingertips.com/webservice/Lift_Final_Tamil/get_thoughts.php?book_id=";
 
         }
@@ -150,7 +153,8 @@ String  bookid;
 
                                 for (int i = 0; i < jsonMainArr.length(); i++) {
 
-                                    JSONObject person= (JSONObject) jsonMainArr.get(i);
+
+                                    person = (JSONObject) jsonMainArr.get(i);
 
                                     book_name[i]=person.getString("book_name");
                                     book_icon[i] = person.getString("book_icon");
@@ -180,6 +184,31 @@ String  bookid;
                                 //mTvResult.setText(jsonResponse);
 
                             } catch (JSONException e) {
+                                try {
+                                    success = person.getString("success");
+                                } catch (JSONException e1) {
+                                    e1.printStackTrace();
+                                }
+                                Log.e("History", "success" + success);
+                                if (success.contains("no")) {
+                                    AlertDialog.Builder helpBuilder = new AlertDialog.Builder(Forum.this, AlertDialog.THEME_HOLO_LIGHT);
+                                    helpBuilder.setTitle("No Content");
+                                    helpBuilder.setMessage("No Content available for Forum");
+                                    helpBuilder.setPositiveButton("OK",
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    dialog.dismiss();
+                                                    Intent checkIntent = new Intent(Forum.this, MainActivity.class);
+                                                    startActivity(checkIntent);
+                                                    finish();
+                                                }
+                                            });
+                                    AlertDialog helpDialog = helpBuilder.create();
+                                    helpDialog.show();
+                                }
+
+
+
                                 e.printStackTrace();
                                 LiftApplication.getInstance().trackException(e);
 

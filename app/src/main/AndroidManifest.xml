@@ -44,6 +44,24 @@
             android:label="Library"
             />
 
+
+
+
+
+        <activity android:name=".activity.SearchActivity"
+            android:screenOrientation="portrait"
+            android:label="Law in finger tips"
+            />
+<activity android:name=".activity.SearchLegislation"
+    android:screenOrientation="portrait"
+    android:label="Law in Finger tips"
+    />
+        <activity android:name=".activity.SearchSupreme"
+            android:screenOrientation="portrait"
+            android:label="Law in Finger tips">
+
+        </activity>
+
         <activity android:name=".activity.MainActivity"
             android:screenOrientation="portrait"
             android:label="Law in finger tips"

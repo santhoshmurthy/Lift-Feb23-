@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+        <com.LAW.lift.model.MyTextviews
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search Category"
+            android:textColor="#1c1c1c"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:padding="5dp"
+            android:textSize="20sp" />
+
+
+        <CheckBox android:id="@+id/sleg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:text="  Legislation"
+            android:button="@drawable/vehicle_det"
+            android:textColor="#1e3e66"
+            android:layout_below="@+id/scase"
+            android:layout_alignLeft="@+id/scase"
+            android:layout_alignStart="@+id/scase"
+            android:layout_marginTop="26dp" />
+        <CheckBox android:id="@+id/scase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:text="  Case law"
+            android:checked="true"
+            android:button="@drawable/vehicle_det"
+            android:textColor="#1e3e66"
+
+
+            android:layout_below="@+id/search"
+            android:layout_alignLeft="@+id/textView27"
+            android:layout_alignStart="@+id/textView27"
+            android:layout_marginTop="45dp" />
+
+
+    <com.LAW.lift.model.ButtonText
+
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:background="#e59400"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:id="@+id/searchbutton"
+        android:layout_gravity="center_vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="137dp" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:singleLine="true"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/search"
+        android:layout_toStartOf="@+id/search"
+        android:id="@+id/textView27" />
+
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/word"
+        android:text=""
+        android:hint="word"
+        android:singleLine="true"
+        android:textCursorDrawable="@null"
+        android:cursorVisible="true"
+        android:background="@drawable/rectangle"
+        android:textColor="#000000"
+        android:gravity="top"
+        android:layout_marginLeft="20dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/textView27"
+        android:layout_toEndOf="@+id/textView27" />
+
+
+</RelativeLayout>

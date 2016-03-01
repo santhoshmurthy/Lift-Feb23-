@@ -4,6 +4,10 @@
     android:id="@+id/actionBarLayout"
     android:layout_marginRight="20dp">
 
+
+
+
+
     <com.LAW.lift.model.MyTextviewWhite
         android:id="@+id/title"
         android:layout_width="wrap_content"
@@ -11,25 +15,28 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
         android:textSize="20dp"
+        android:layout_toRightOf="@+id/back"
         android:maxLines="1"
         android:ellipsize="end" />
-
-
-
-
-
-
-    <com.LAW.lift.model.ButtonText
+ <!-- <com.LAW.lift.model.ButtonText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/lang"
-        android:id="@+id/button2"
-        android:background="#e59400"
+        android:text="English"
+        android:id="@+id/button"
+        android:visibility="gone"
         android:textAllCaps="false"
-
-
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true" />-->
+   <!-- <com.LAW.lift.model.ButtonText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tamil"
+        android:id="@+id/button2"
+        android:textAllCaps="false"
+        android:background="#e59400"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />-->
 
 </RelativeLayout>

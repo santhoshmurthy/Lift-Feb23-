@@ -27,7 +27,7 @@ public class ButtonRegularText extends Button{
 
         Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/ProximaNova-Regular.otf");
         setTypeface(tf);
-        setTextColor(Color.WHITE);
+        setTextColor(Color.BLACK);
         //setLineSpacing(10f, 1f);
     }
 }

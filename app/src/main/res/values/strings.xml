@@ -9,12 +9,12 @@
     <string name="Disclaimer">Disclaimer</string>
 
     <string name="textView20">How To Use</string>
-    <string name="textView17">. LIFT icon in the drop down provides information About the App, How to Use, Aim and Disclaimer and Contact.</string>
-    <string name="textView14">.  All the five sections of the Monthly LIFT content are in the main display.  Users can touch and access the same. Content will be displayed if only your device is connected to the internet.</string>
-    <string name="textView18">. <b>LIBRARY</b> icon, contains all the old volumes from July, 2013.  Touch the icon, then choose the year and then touch the volume to read.</string>
-    <string name="textView16">. Information about the App,<b>Library</b> or <b>Search</b>options are available by touching the drop-down menu icon.</string>
-<string name="textView19">.SEARCH icon enables searching the legislation and case law sections by any key word. Touch the icon, then select the section and then key in the word for search and you will find the relevant pages displayed.</string>
-    <string name="textView15">. Touching the icon <b> English </b> or <b>தமிழ் </b>will change the language of the entire content accordingly.</string>
+    <string name="textView17"> LIFT icon in the drop down provides information About the App, How to Use, Aim and Disclaimer and Contact.</string>
+    <string name="textView14">  All the five sections of the Monthly LIFT content are in the main display.  Users can touch and access the same. Content will be displayed if only your device is connected to the internet.</string>
+    <string name="textView18"> <b>LIBRARY</b> icon, contains all the old volumes from July, 2013.  Touch the icon, then choose the year and then touch the volume to read.</string>
+    <string name="textView16"> Information about the App,<b>Library</b> or <b>Search</b>options are available by touching the drop-down menu icon.</string>
+<string name="textView19">SEARCH icon enables searching the legislation and case law sections by any key word. Touch the icon, then select the section and then key in the word for search and you will find the relevant pages displayed.</string>
+    <string name="textView15"> Touching the icon <b> English </b> or <b>தமிழ் </b>will change the language of the entire content accordingly.</string>
     <string name="textView2">M/s LIFT INDIA</string>
     <string name="textView3">C/O M/s.sai,Bharat,ilan</string>
     <string name="textView4">Advocates</string>
@@ -47,10 +47,12 @@
 
         <item>Home</item>
         <item>Library</item>
+        <item>Search</item>
         <item>About Us</item>
         <item>Contact Us</item>
         <item> Aim and Disclaimer</item>
         <item>How To Use</item>
+
 
 
 
@@ -134,12 +136,13 @@
 
 
 
-    <string name="lang">Tamil</string>
+    <string name="lang">தமிழ்</string>
 
 
     <string name="lawfull">Touch here</string>
 
   <string name="tamilfulltext">Touch here</string>
+    <string name="tamilfull">Touch here</string>
 
   <string name="texttouch">Touch here</string>
     <string name="texthigh">Touch here</string>

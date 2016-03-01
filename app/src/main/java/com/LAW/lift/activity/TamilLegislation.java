@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.LAW.lift.R;
 import com.LAW.lift.adapter.CardArrayAdapter;
@@ -72,7 +73,8 @@ public class TamilLegislation extends Activity {
     ListView listView2;
     String bookid;
     String months;
-
+    String success;
+    private JSONObject person;
     private legislationadapter rideadapter2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +111,7 @@ public class TamilLegislation extends Activity {
             //Toast.makeText(Booking.this,sname+"\n"+slat+"\n"+slong, Toast.LENGTH_SHORT).show();
         }
         tamilfeb.setText(months);
-        if(MainActivity.Language.equals("Tamil")){
+        if(MainActivity.Language.equals("தமிழ்")){
             urlJsonArry = "http://www.lawinfingertips.com/webservice/Lift_Final_Tamil/get_legislation.php?book_id=";
             tamil="&type=state&state_id=1000";
         }
@@ -175,7 +177,8 @@ public class TamilLegislation extends Activity {
 
                                 for (int i = 0; i < jsonMainArr.length(); i++) {
 
-                                    JSONObject person= (JSONObject) jsonMainArr.get(i);
+
+                                    person = (JSONObject) jsonMainArr.get(i);
 
                                     book_id[i]=person.getString("book_id");
                                     state_id[i] = person.getString("state_id");
@@ -218,6 +221,30 @@ public class TamilLegislation extends Activity {
                                 //mTvResult.setText(jsonResponse);
 
                             } catch (JSONException e) {
+
+                                try {
+                                    success = person.getString("success");
+                                } catch (JSONException e1) {
+                                    e1.printStackTrace();
+                                }
+                                Log.e("History", "success" + success);
+                                if (success.contains("no")) {
+                                    AlertDialog.Builder helpBuilder = new AlertDialog.Builder(TamilLegislation.this, AlertDialog.THEME_HOLO_LIGHT);
+                                    helpBuilder.setTitle("No Content");
+                                    helpBuilder.setMessage("No Content available for TamilLegislation");
+                                    helpBuilder.setPositiveButton("OK",
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    dialog.dismiss();
+                                                    Intent checkIntent = new Intent(TamilLegislation.this, MainActivity.class);
+                                                    startActivity(checkIntent);
+                                                    finish();
+                                                }
+                                            });
+                                    AlertDialog helpDialog = helpBuilder.create();
+                                    helpDialog.show();
+                                }
+
                                 e.printStackTrace();
                                 LiftApplication.getInstance().trackException(e);
 

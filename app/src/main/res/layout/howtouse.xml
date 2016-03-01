@@ -6,11 +6,16 @@
     android:background="#fff">
 
     <RelativeLayout
-        android:id="@+id/rl3"
+        android:id="@+id/rl0"
         android:layout_width="400dp"
         android:layout_marginTop="5dp"
         android:layout_height="50dp"
         android:background="#e59400">
+
+
+
+
+
     <com.LAW.lift.model.MyTextview
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,14 +32,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/rl3"
+        android:layout_below="@+id/rl0"
         android:layout_marginBottom="10dp">
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rl1">
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:id="@+id/back"
+                android:src="@drawable/arrowright"
 
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
             <com.LAW.lift.model.MyTextviews
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -42,27 +60,56 @@
                 android:textSize="18sp"
                 android:layout_gravity="center_vertical|right"
                 android:textAlignment="gravity"
+                android:layout_toRightOf="@+id/back"
                 android:lineSpacingExtra="4dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:text="@string/textView14"
 
                 android:id="@+id/textView14" />
-
+            </RelativeLayout>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/rl1"
+    android:id="@+id/rl2">
+    <ImageView
+        android:layout_width="13dp"
+        android:layout_height="13dp"
+        android:id="@+id/bac"
+        android:src="@drawable/arrowright"
+        android:layout_alignTop="@+id/textView15"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
             <com.LAW.lift.model.MyTextviews
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/textView15"
                 android:textColor="#1c1c1c"
                 android:textSize="18sp"
+                android:layout_toRightOf="@+id/bac"
                 android:layout_gravity="center_vertical|right"
                 android:textAlignment="gravity"
                 android:lineSpacingExtra="4dp"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_below="@+id/textView14"
+
                 android:id="@+id/textView15" />
+</RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rl3"
+                android:layout_below="@+id/rl2">
+                <ImageView
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:id="@+id/arrow"
+                    android:src="@drawable/arrowright"
+                    android:layout_alignTop="@+id/textView16"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
 
             <com.LAW.lift.model.MyTextviews
                 android:layout_width="wrap_content"
@@ -70,14 +117,31 @@
                 android:text="@string/textView16"
                 android:textColor="#1c1c1c"
                 android:textSize="18sp"
+                android:layout_toRightOf="@+id/arrow"
                 android:layout_gravity="center_vertical|right"
                 android:textAlignment="gravity"
                 android:lineSpacingExtra="4dp"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_below="@+id/textView15"
+
                 android:id="@+id/textView16" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rl4"
+                android:layout_below="@+id/rl3">
+
+                <ImageView
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:id="@+id/arrows"
+                    android:src="@drawable/arrowright"
+                    android:layout_alignTop="@+id/textView17"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
 
             <com.LAW.lift.model.MyTextviews
                 android:layout_width="wrap_content"
@@ -85,16 +149,31 @@
                 android:text="@string/textView17"
                 android:textColor="#1c1c1c"
                 android:textSize="18sp"
+                android:layout_toRightOf="@+id/arrows"
                 android:layout_gravity="center_vertical|right"
                 android:textAlignment="gravity"
                 android:lineSpacingExtra="4dp"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_below="@+id/textView16"
-                android:id="@+id/textView17" />
 
-            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/textView17" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rl5"
+                android:layout_below="@+id/rl4">
+                <ImageView
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:id="@+id/arro"
+                    android:src="@drawable/arrowright"
+                    android:layout_alignTop="@+id/textView18"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <com.LAW.lift.model.MyTextviews
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/textView18"
@@ -102,29 +181,43 @@
                 android:textSize="18sp"
                 android:layout_gravity="center_vertical|right"
                 android:textAlignment="gravity"
+                    android:layout_toRightOf="@+id/arro"
                 android:lineSpacingExtra="4dp"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_below="@+id/textView17"
                 android:id="@+id/textView18" />
-
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rl6"
+                android:layout_below="@+id/rl5">
+                <ImageView
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:id="@+id/arr"
+                    android:src="@drawable/arrowright"
+                    android:layout_alignTop="@+id/textView19"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
             <com.LAW.lift.model.MyTextviews
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/textView19"
                 android:textColor="#1c1c1c"
+                android:layout_toRightOf="@+id/arr"
                 android:textSize="18sp"
                 android:layout_gravity="center_vertical|right"
                 android:textAlignment="gravity"
                 android:lineSpacingExtra="4dp"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_below="@+id/textView18"
+
                 android:id="@+id/textView19" />
 
-
+            </RelativeLayout>
 
 
         </RelativeLayout>

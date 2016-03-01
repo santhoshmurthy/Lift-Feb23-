@@ -88,7 +88,7 @@ public class Library extends Activity {
             }
         });
 
-        if(MainActivity.Language.equals("Tamil")){
+        if(MainActivity.Language.equals("தமிழ்")){
             urlJsonArry = "http://www.lawinfingertips.com/webservice/Lift_Final_Tamil/get_all_books.php?year=";
             jsonPorturl = "http://www.lawinfingertips.com/webservice/Lift_Final_Tamil/get_year.php?id=1";
         }

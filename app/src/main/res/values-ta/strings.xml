@@ -38,12 +38,14 @@
     <string-array name="nav_drawer_items">
 
 
-        <item>லிஃப்ட் முகப்ப</item>
+        <item>லிஃப்ட் முகப்பு</item>
         <item>லிஃப்ட் நூலகம்</item>
+        <item>தேடல்</item>
         <item>லிஃப்டைப்  பற்றி </item>
         <item>தொடர்புகொள்ள</item>
         <item>சாற்றும் துறப்பும்</item>
         <item>பயன்பாடு அறிவோம்</item>
+
 
     </string-array>
     <array name="nav_drawer_icons">

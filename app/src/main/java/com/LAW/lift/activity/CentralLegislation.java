@@ -87,9 +87,12 @@ public class CentralLegislation extends Activity {
     String half = "&type=central";
     ListView listView;
     String bookid;
+    String bookname;
     Button button2;
     MyTextviews febcentral;
     String months;
+    String success;
+    private   JSONObject person;
     private CardArrayAdapter rideadapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,11 +131,13 @@ public class CentralLegislation extends Activity {
             bookid = extras.getString("book_id");
             months = extras.getString("month");
 
+
+
             Log.d("central", bookid + months);
             //Toast.makeText(Booking.this,sname+"\n"+slat+"\n"+slong, Toast.LENGTH_SHORT).show();
         }
 
-        if(MainActivity.Language.equals("Tamil")){
+        if(MainActivity.Language.equals("தமிழ்")){
             urlJsonArry = "http://www.lawinfingertips.com/webservice/Lift_Final_Tamil/get_legislation.php?book_id=";
             half ="&type=central";
 
@@ -198,7 +203,8 @@ public class CentralLegislation extends Activity {
 
                                 for (int i = 0; i < jsonMainArr.length(); i++) {
 
-                                    JSONObject person = (JSONObject) jsonMainArr.get(i);
+
+                                    person = (JSONObject) jsonMainArr.get(i);
 
                                     book_id[i] = person.getString("book_id");
                                     state_id[i] = person.getString("state_id");
@@ -217,6 +223,8 @@ public class CentralLegislation extends Activity {
                                     brief_deatils[i] = person.getString("brief_deatils");
                                     ref_url[i] = person.getString("ref_url");
 
+
+
                                     lawname = person.getString("name");
                                     lawactno = person.getString("act_no");
                                     lawenactedby = person.getString("enacted_by");
@@ -229,6 +237,7 @@ public class CentralLegislation extends Activity {
 
 
                                     months = person.getString("month");
+                                    bookname=person.getString("book_name");
 
 
                                     Card card = new Card(lawname, lawactno, lawenactedby, lawreceived, lawpublished, lawcame, lawsalient, lawbrief, lawfull);
@@ -242,6 +251,31 @@ public class CentralLegislation extends Activity {
 
 
                             } catch (JSONException e) {
+                                try {
+                                    success = person.getString("success");
+                                } catch (JSONException e1) {
+                                    e1.printStackTrace();
+                                }
+                                Log.e("History", "success" + success);
+                                if (success.contains("no")) {
+                                    AlertDialog.Builder helpBuilder = new AlertDialog.Builder(CentralLegislation.this, AlertDialog.THEME_HOLO_LIGHT);
+                                    helpBuilder.setTitle("No Content");
+                                    helpBuilder.setMessage("No Content available for CentralLegislation");
+                                    helpBuilder.setPositiveButton("OK",
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    dialog.dismiss();
+                                                    Intent checkIntent = new Intent(CentralLegislation.this, MainActivity.class);
+                                                    startActivity(checkIntent);
+                                                    finish();
+                                                }
+                                            });
+                                    AlertDialog helpDialog = helpBuilder.create();
+                                    helpDialog.show();
+                                }
+
+
+
                                 e.printStackTrace();
 
                                 LiftApplication.getInstance().trackException(e);
@@ -249,7 +283,6 @@ public class CentralLegislation extends Activity {
                                 if (pDialog.isShowing())
                                     pDialog.dismiss();
                             }
-
                         }
                     }, new Response.ErrorListener() {
                 @Override

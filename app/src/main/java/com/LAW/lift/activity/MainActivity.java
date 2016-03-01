@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -93,7 +94,7 @@ public class MainActivity extends FragmentActivity {
     // slide menu items
     private String[] navMenuTitles;
     private TypedArray navMenuIcons;
-
+    private ImageButton btnspeak;
     private ArrayList<NavDrawerItem> navDrawerItems;
     private NavDrawerListAdapter adapter;
 
@@ -133,6 +134,7 @@ public class MainActivity extends FragmentActivity {
 
 
 
+
         mTitle = mDrawerTitle = getTitle();
 
 
@@ -162,6 +164,7 @@ public class MainActivity extends FragmentActivity {
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1)));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons.getResourceId(6, -1)));
 
         navMenuIcons.recycle();
 
@@ -220,23 +223,29 @@ public class MainActivity extends FragmentActivity {
                     setLocale("");
                 }
 
-              /*  Toast.makeText(MainActivity.this,
-                        "You have selected Tamil", Toast.LENGTH_SHORT)
-                        .show();*/
-            /*  android.content.res.Resources res = getResources();
-                String central = res.getString(R.string.central);*/
-/*
-// Set the string to the textview
-                TextView helloTextView;
-                helloTextView = (TextView)findViewById(R.id.hello_world_textview);
-                helloTextView.setText(helloWorld);*/
+
+
 
 
             }
         });
 
 
+
+
+
+
+
+
+
+
+
     }
+
+
+
+
+
 
         @Override
         public boolean onCreateOptionsMenu (Menu menu){
@@ -374,30 +383,31 @@ public class MainActivity extends FragmentActivity {
         /*        MainActivity.this.finish();*/
                 break;
             case 2:
+                Intent in=new Intent(MainActivity.this,SearchActivity.class);
+                startActivity(in);
+                break;
+            case 3 :
                 Bundle bundle=new Bundle();
                 fragment = new AboutFragment();
                 fragment.setArguments(bundle);
-
                 break;
-
-            case 3 :
+            case 4:
                 Bundle bundles=new Bundle();
                 fragment = new ContactusFragment();
                 fragment.setArguments(bundles);
 
                 break;
-
-            case 4:
+            case 5:
                 Bundle bundle2 = new Bundle();
                 fragment = new DisclaimerFragment();
                 fragment.setArguments(bundle2);
+
                 break;
-
-
-            case 5:
+            case 6:
                 Bundle bundle1=new Bundle();
                 fragment = new HowtouseFragment();
                 fragment.setArguments(bundle1);
+
                 break;
 
 

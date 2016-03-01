@@ -10,38 +10,57 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
         android:layout_marginBottom="10dp">
 
         <RelativeLayout
             android:id="@+id/frame1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/rectangle_box"
             android:layout_below="@+id/text1"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="1dp">
 
-            <com.LAW.lift.model.MyTextviews
-                android:id="@+id/titlehigh"
+
+
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/madras_title"
+                android:text="f"
+                android:textColor="#1c1c1c"
+                android:layout_margin="5dp"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/casebookname" />
+
+
+
+
+
+            <com.LAW.lift.model.MyTextviews
+                android:id="@+id/titletext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title:"
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
                 android:textAllCaps="false"
+                android:layout_below="@+id/casebookname"
                 android:textColor="#800000"
                 android:textSize="20sp" />
             <com.LAW.lift.model.MyTextviews
-                android:id="@+id/highpara"
+                android:id="@+id/titlepara"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" "
                 android:textAllCaps="false"
-                android:layout_below="@+id/titlehigh"
+                android:layout_below="@+id/titletext"
                 android:textColor="#1c1c1c"
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="3dp"
+
                 android:textAlignment="gravity"
                 android:lineSpacingExtra="4dp"
                 android:textSize="17sp"
@@ -53,31 +72,29 @@
                 android:id="@+id/textcontext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/madras_context"
-                android:textAllCaps="false"
+                android:text="Context:"
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
+                android:textAllCaps="false"
                 android:textColor="#800000"
-                android:layout_marginTop="15dp"
-                android:layout_below="@+id/highpara"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/titlepara"
                 android:textSize="20sp"
                 />
             <com.LAW.lift.model.MyTextviews
-                android:id="@+id/contexthigh"
+                android:id="@+id/contextpara"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" "
+                android:text="ffff"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
                 android:layout_below="@+id/textcontext"
                 android:textAllCaps="false"
 
                 android:textColor="#1c1c1c"
-                android:layout_marginRight="5dp"
-                android:layout_marginLeft="5dp"
-
                 android:textAlignment="gravity"
                 android:lineSpacingExtra="4dp"
-                android:textSize="17sp"
-                />
+                android:textSize="17sp"/>
 
 
 
@@ -85,30 +102,29 @@
                 android:id="@+id/textquestion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/madras_questn"
-                android:layout_marginTop="15dp"
-                android:textAllCaps="false"
+                android:text="Question:"
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
-                android:layout_below="@id/contexthigh"
+                android:textAllCaps="false"
+                android:layout_marginTop="15dp"
+                android:layout_below="@id/contextpara"
                 android:textColor="#800000"
                 android:textSize="20sp"
                 />
             <com.LAW.lift.model.MyTextviews
-                android:id="@+id/questionhigh"
+                android:id="@+id/questionpara"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" "
                 android:textAllCaps="false"
-
                 android:layout_marginRight="5dp"
+                android:layout_marginTop="3dp"
                 android:layout_marginLeft="5dp"
                 android:layout_below="@+id/textquestion"
                 android:textColor="#1c1c1c"
                 android:textAlignment="gravity"
                 android:lineSpacingExtra="4dp"
                 android:textSize="17sp"
-
                 />
 
 
@@ -116,88 +132,99 @@
                 android:id="@+id/textanswer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/madras_ansr"
+                android:text="Answer:"
                 android:textAllCaps="false"
-                android:layout_marginTop="15dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
-                android:layout_below="@+id/questionhigh"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/questionpara"
                 android:textColor="#800000"
                 android:textSize="20sp"
                 />
             <com.LAW.lift.model.MyTextviews
-                android:id="@+id/answerhigh"
+                android:id="@+id/answerpara"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" "
                 android:textAllCaps="false"
                 android:layout_below="@+id/textanswer"
                 android:textColor="#1c1c1c"
+                android:layout_marginTop="3dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
                 android:textAlignment="gravity"
-
                 android:lineSpacingExtra="4dp"
-                android:textSize="17sp"
-
-               />
+                android:textSize="17sp"/>
 
 
             <com.LAW.lift.model.MyTextviews
                 android:id="@+id/textreference"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/madras_ref"
+                android:text="Reference:"
                 android:textAllCaps="false"
-                android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="15dp"
-                android:layout_below="@+id/answerhigh"
+                android:layout_below="@+id/answerpara"
                 android:textColor="#800000"
                 android:textSize="20sp"
                 />
             <com.LAW.lift.model.MyTextviews
-                android:id="@+id/referencehigh"
+                android:id="@+id/referencepara"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" "
+                android:text="gggg"
                 android:textAllCaps="false"
+
                 android:textColor="#1c1c1c"
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
-
                 android:textAlignment="gravity"
                 android:lineSpacingExtra="4dp"
                 android:layout_below="@+id/textreference"
                 android:textSize="17sp"
+
                 />
 
-            <com.LAW.lift.model.MyTextviews
+
+
+
+
+
+
+
+
+
+
+
+
+           <!-- <com.LAW.lift.model.MyTextviews
                 android:id="@+id/textfull"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/madras_text"
+                android:text="@string/supreme_text"
                 android:textAllCaps="false"
                 android:textColor="#800000"
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="15dp"
-                android:layout_below="@+id/referencehigh"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/referencepara"
                 android:textSize="20sp"
                 />
             <com.LAW.lift.model.MyTextviews
-                android:id="@+id/texthigh"
+                android:id="@+id/texttouch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/texthigh"
+                android:text="@string/texttouch"
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
+
                 android:layout_below="@id/textfull"
                 android:textAllCaps="false"
                 android:textColor="#0000ff"
-                android:textSize="17dp"/>
-
-
+                android:textSize="17sp"/>
+-->
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

@@ -21,8 +21,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.LAW.lift.R;
+import com.LAW.lift.activity.SearchLegislation;
 import com.LAW.lift.activity.TamilLegislation;
 import com.LAW.lift.model.NLService;
+import com.LAW.lift.model.Searchlegislationcard;
 import com.LAW.lift.model.legislationcard;
 
 import java.io.BufferedInputStream;
@@ -36,9 +38,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class legislationadapter extends ArrayAdapter<legislationcard> {
+public class Searchlegislationadapter extends ArrayAdapter<Searchlegislationcard> {
     private static final String TAG = "CardArrayAdapter";
-    private List<legislationcard> cardList = new ArrayList<legislationcard>();
+    private List<Searchlegislationcard> cardList = new ArrayList<Searchlegislationcard>();
 
     String bus_id_item;
     int textViewResourceId;
@@ -74,7 +76,7 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
 
     }
 
-    public legislationadapter(Context context, int textViewResourceId) {
+    public Searchlegislationadapter(Context context, int textViewResourceId) {
 
         super(context, textViewResourceId);
         this.textViewResourceId = textViewResourceId;
@@ -82,7 +84,7 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
     }
 
     @Override
-    public void add(legislationcard object) {
+    public void add(Searchlegislationcard object) {
         cardList.add(object);
         super.add(object);
     }
@@ -93,7 +95,7 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
     }
 
     @Override
-    public legislationcard getItem(int index) {
+    public Searchlegislationcard getItem(int index) {
         return this.cardList.get(index);
     }
 
@@ -106,6 +108,8 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
             LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = inflater.inflate(textViewResourceId, parent, false);
             viewHolder = new CardViewHolder();
+
+            viewHolder.line10 = (TextView) row.findViewById(R.id.legbookname);
             viewHolder.line1 = (TextView) row.findViewById(R.id.tamilname);
             viewHolder.line2 = (TextView) row.findViewById(R.id.tamilactno);
             viewHolder.line3 = (TextView) row.findViewById(R.id.tamilenactedby);
@@ -114,7 +118,9 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
             viewHolder.line6 = (TextView) row.findViewById(R.id.tamilcame);
             viewHolder.line7 = (TextView) row.findViewById(R.id.tamilsalient);
             viewHolder.line8 = (TextView) row.findViewById(R.id.tamilbrief);
-           viewHolder.line9 = (TextView) row.findViewById(R.id.tamilfulltext);
+             viewHolder.line9 = (TextView) row.findViewById(R.id.tamilfull);
+
+
             mProgressDialog = new ProgressDialog(mcontext);
             mProgressDialog.setMessage("Downloading file..");
             mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
@@ -126,16 +132,22 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
             viewHolder = (CardViewHolder) row.getTag();
         }
 
-        legislationcard legislationcard = getItem(position);
-        viewHolder.line1.setText(legislationcard.gettamilname());
-        viewHolder.line2.setText(legislationcard.gettamilactno());
-        viewHolder.line3.setText(legislationcard.gettamilenactedby());
-        viewHolder.line4.setText(legislationcard.gettamilreceived());
-        viewHolder.line5.setText(legislationcard.gettamilpublished());
-        viewHolder.line6.setText(legislationcard.gettamilcame());
-        viewHolder.line7.setText(legislationcard.gettamilsalient());
-        viewHolder.line8.setText(legislationcard.gettamilbrief());
-        //viewHolder.line9.setText(legislationcard.gettamilfulltext());
+        Searchlegislationcard Searchlegislationcard = getItem(position);
+
+        viewHolder.line10.setText(Searchlegislationcard.getlegbookname());
+        viewHolder.line1.setText(Searchlegislationcard.gettamilname());
+        viewHolder.line2.setText(Searchlegislationcard.gettamilactno());
+        viewHolder.line3.setText(Searchlegislationcard.gettamilenactedby());
+        viewHolder.line4.setText(Searchlegislationcard.gettamilreceived());
+        viewHolder.line5.setText(Searchlegislationcard.gettamilpublished());
+        viewHolder.line6.setText(Searchlegislationcard.gettamilcame());
+        viewHolder.line7.setText(Searchlegislationcard.gettamilsalient());
+        viewHolder.line8.setText(Searchlegislationcard.gettamilbrief());
+       // viewHolder.line9.setText(Searchlegislationcard.gettamilfulltext());
+
+
+
+        viewHolder.line10.setSelected(true);
         viewHolder.line1.setSelected(true);
         viewHolder.line2.setSelected(true);
         viewHolder.line3.setSelected(true);
@@ -147,57 +159,76 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
         viewHolder.line9.setSelected(true);
 
 
+        if (viewHolder.line1 != null)
+            viewHolder.line1.setText(Html.fromHtml(Searchlegislationcard.gettamilname().toString()));
 
-        if(legislationcard.gettamilname().equals("")){
+        if (viewHolder.line7 != null)
+            viewHolder.line7.setText(Html.fromHtml(Searchlegislationcard.gettamilsalient().toString()));
+if (viewHolder.line8 != null)
+            viewHolder.line8.setText(Html.fromHtml(Searchlegislationcard.gettamilbrief().toString()));
+
+
+
+
+
+
+
+       /* if(Searchlegislationcard.gettamilname().equals("")){
             viewHolder.line1.setText("Content not uploaded");
         }else {
-            viewHolder.line1.setText(legislationcard.gettamilname());
+            viewHolder.line1.setText(Searchlegislationcard.gettamilname());
         }
 
-        if(legislationcard.gettamilactno().equals("")){
+        if(Searchlegislationcard.gettamilname().equals("")){
+            viewHolder.line10.setText("Content not uploaded");
+        }else {
+            viewHolder.line10.setText(Searchlegislationcard.gettamilname());
+        }
+
+        if(Searchlegislationcard.gettamilactno().equals("")){
             viewHolder.line2.setText("Content not uploaded");
         }else {
-            viewHolder.line2.setText(legislationcard.gettamilactno());
+            viewHolder.line2.setText(Searchlegislationcard.gettamilactno());
         }
 
-        if(legislationcard.gettamilenactedby().equals("")){
+        if(Searchlegislationcard.gettamilenactedby().equals("")){
             viewHolder.line3.setText("Content not uploaded");
         }else {
-            viewHolder.line3.setText(legislationcard.gettamilenactedby());
+            viewHolder.line3.setText(Searchlegislationcard.gettamilenactedby());
         }
 
 
-        if(legislationcard.gettamilreceived().equals("")){
+        if(Searchlegislationcard.gettamilreceived().equals("")){
             viewHolder.line4.setText("Content not uploaded");
         }else {
-            viewHolder.line4.setText(legislationcard.gettamilreceived());
+            viewHolder.line4.setText(Searchlegislationcard.gettamilreceived());
         }
 
-        if(legislationcard.gettamilpublished().equals("")){
+        if(Searchlegislationcard.gettamilpublished().equals("")){
             viewHolder.line5.setText("Content not uploaded");
         }else {
-            viewHolder.line5.setText(legislationcard.gettamilpublished());
+            viewHolder.line5.setText(Searchlegislationcard.gettamilpublished());
         }
 
-        if(legislationcard.gettamilcame().equals("")){
+        if(Searchlegislationcard.gettamilcame().equals("")){
             viewHolder.line6.setText("Content not uploaded");
         }else {
-            viewHolder.line6.setText(legislationcard.gettamilcame());
+            viewHolder.line6.setText(Searchlegislationcard.gettamilcame());
         }
 
-        if(legislationcard.gettamilsalient().equals("")){
+        if(Searchlegislationcard.gettamilsalient().equals("")){
             viewHolder.line7.setText("Content not uploaded");
         }else {
-            viewHolder.line7.setText(legislationcard.gettamilsalient());
+            viewHolder.line7.setText(Searchlegislationcard.gettamilsalient());
         }
 
-        if(legislationcard.gettamilbrief().equals("")){
+        if(Searchlegislationcard.gettamilbrief().equals("")){
             viewHolder.line8.setText("Content not uploaded");
         }else {
-            viewHolder.line8.setText(legislationcard.gettamilbrief());
+            viewHolder.line8.setText(Searchlegislationcard.gettamilbrief());
         }
 
-
+*/
        /* if(legislationcard.gettamilfulltext().equals("")){
             viewHolder.line9.setText("Content not uploaded");
         }else {
@@ -207,11 +238,11 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
 
 
 
-        if (row != null) {
+       /* if (row != null) {
             TextView line7 = (TextView) row.findViewById(R.id.tamilsalient);
 
             if (line7 != null)
-                line7.setText(Html.fromHtml(legislationcard.gettamilsalient()).toString());
+                line7.setText(Html.fromHtml(Searchlegislationcard.gettamilsalient()).toString());
 
 
 
@@ -222,18 +253,30 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
             TextView line8 = (TextView) row.findViewById(R.id.tamilbrief);
 
             if (line8 != null)
-                line8.setText(Html.fromHtml(legislationcard.gettamilsalient()).toString());
+                line8.setText(Html.fromHtml(Searchlegislationcard.gettamilsalient()).toString());
         }
+          if (row != null) {
+            TextView line1 = (TextView) row.findViewById(R.id.tamilname);
 
+            if (line1 != null)
+                line1.setText(Html.fromHtml(Searchlegislationcard.gettamilsalient()).toString());
+        }
+      if (row != null) {
+            TextView line2 = (TextView) row.findViewById(R.id.legbookname);
 
+            if (line2 != null)
+                line2.setText(Html.fromHtml(Searchlegislationcard.gettamilsalient()).toString());
+        }
+*/
 
         viewHolder.line9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Link = TamilLegislation.ref_url[position];
+                Link = SearchLegislation.ref_url[position];
                 startDownload();
             }
         });
+
         return row;
     }
 
@@ -245,6 +288,7 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
 
 
     static class CardViewHolder {
+       TextView line10;
         TextView line1;
         TextView line2;
         TextView line3;
@@ -254,11 +298,14 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
         TextView line7;
         TextView line8;
         TextView line9;
+
+
     }
 
     private void startDownload() {
         //String url = "http://farm1.static.flickr.com/114/298125983_0e4bf66782_b.jpg";
         new DownloadFileAsync().execute(Link);
+
         mBuilder = new NotificationCompat.Builder(getContext());
         mBuilder.setContentTitle("Downloading " + "book_id.pdf"+ "...");
         mBuilder.setContentText("Download in progress");
@@ -267,7 +314,6 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
         mNotifyManager.notify(id, mBuilder.build());
         mBuilder.setAutoCancel(true);
     }
-
 
     class DownloadFileAsync extends AsyncTask<String, String, String> {
 
@@ -335,7 +381,11 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
                 mProgressDialog.setProgress(per);
                 Log.d("ANDRO_ASYNC", progress[0] + "        " + per + "       " + counter);
             }
+            // counter++;
         }
+
+
+
 
         @Override
         protected void onPostExecute(String unused) {
