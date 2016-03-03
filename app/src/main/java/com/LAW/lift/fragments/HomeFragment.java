@@ -37,7 +37,8 @@ import org.json.JSONObject;
 public class HomeFragment extends Fragment {
 
   String urlJsonArry = "http://www.lawinfingertips.com/webservice/Lift_Final/lift_of_the_month.php?id=1";
-    String months,bookid,bookname,Language;
+    String bookid,Language;
+    public static String months;
     private Button central,Tamil,supreme,Madras,forum;
     private TextView mon;
     public static String[] get_legislation;
@@ -47,6 +48,7 @@ public class HomeFragment extends Fragment {
     public static String[] Published_Month;
     public static String[] month;
     ProgressDialog pDialog;
+    public static String years;
     AlertDialogManager alert = new AlertDialogManager();
     ConnectionDetector cd;
     @Override
@@ -138,7 +140,7 @@ public class HomeFragment extends Fragment {
                                         bookid = person.getString("Id");
                                         months = person.getString("month");
                                         mon.setText(months);
-                                        Log.d("HomeFragment", bookid);
+                                        Log.d("HomeFragment", bookid+months);
                                     }
                                     if (pDialog.isShowing())
                                         pDialog.dismiss();
@@ -173,10 +175,11 @@ public class HomeFragment extends Fragment {
         central.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LiftApplication.getInstance().trackEvent("Central legislation","click","central");
+                LiftApplication.getInstance().trackEvent("Central legislation", "click", "central");
                 Intent openIntent = new Intent(getActivity(), CentralLegislation.class);
                 openIntent.putExtra("book_id", bookid);
                 openIntent.putExtra("month",months);
+                openIntent.putExtra("year",years);
                 startActivity(openIntent);
                 // MainActivity.this.finish();
 
@@ -191,6 +194,7 @@ public class HomeFragment extends Fragment {
                 Intent openIntent = new Intent(getActivity(), TamilLegislation.class);
                 openIntent.putExtra("book_id", bookid);
                 openIntent.putExtra("month",months);
+                openIntent.putExtra("year",years);
                 startActivity(openIntent);
                 // MainActivity.this.finish();
 
@@ -205,6 +209,7 @@ public class HomeFragment extends Fragment {
                 Intent openIntent = new Intent(getActivity(), Supremecourt.class);
                 openIntent.putExtra("book_id", bookid);
                 openIntent.putExtra("month",months);
+                openIntent.putExtra("year",years);
                 startActivity(openIntent);
                 //  MainActivity.this.finish();
 
@@ -218,6 +223,7 @@ public class HomeFragment extends Fragment {
                 Intent openIntent = new Intent(getActivity(), MadrasHighcourt.class);
                 openIntent.putExtra("book_id", bookid);
                 openIntent.putExtra("month",months);
+                openIntent.putExtra("year",years);
                 startActivity(openIntent);
                 // MainActivity.this.finish();
 
@@ -231,6 +237,7 @@ public class HomeFragment extends Fragment {
                 Intent openIntent = new Intent(getActivity(), Forum.class);
                 openIntent.putExtra("book_id", bookid);
                 openIntent.putExtra("month", months);
+                openIntent.putExtra("year",years);
                 startActivity(openIntent);
                 // MainActivity.this.finish();
 

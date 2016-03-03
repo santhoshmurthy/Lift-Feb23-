@@ -339,7 +339,7 @@ public class SearchLegislation extends Activity {
                             public void onBackPressed() {
        /* Intent in = new Intent(SearchLegislation.this, MainActivity.class);
         startActivity(in);*/
-                                finish();
+                               finish();
                             }
                         }
 

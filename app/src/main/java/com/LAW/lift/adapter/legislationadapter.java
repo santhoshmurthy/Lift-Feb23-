@@ -21,7 +21,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.LAW.lift.R;
+import com.LAW.lift.activity.MainActivity;
 import com.LAW.lift.activity.TamilLegislation;
+import com.LAW.lift.fragments.HomeFragment;
 import com.LAW.lift.model.NLService;
 import com.LAW.lift.model.legislationcard;
 
@@ -33,6 +35,8 @@ import java.io.OutputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -45,12 +49,15 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
     public static final int DIALOG_DOWNLOAD_PROGRESS = 0;
     private Button startBtn;
     private ProgressDialog mProgressDialog;
-
+    Calendar c = Calendar.getInstance();
+    int seconds = c.get(Calendar.SECOND);
     Context mcontext;
     String Link;
+    File pdfFile;
+    public int pos;
     //Map<String, String> addToCartMap = new HashMap<>();
-    File pdfFile = new File(Environment
-            .getExternalStorageDirectory(),"lift.pdf");
+
+
     //Map<String, String> addToCartMap = new HashMap<>();
 
     NotificationCompat.Builder mBuilder;
@@ -99,6 +106,16 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
+        pos=position;
+        Log.d("ANDRO_ASYNC", "Central " + position);
+
+        if (MainActivity.years==null)
+        {
+            MainActivity.years="2016";
+        }
+        pdfFile = new File(Environment
+                .getExternalStorageDirectory(),"Tamillegislation"+ HomeFragment.months+MainActivity.years+position+".pdf");
+
         View row = convertView;
         CardViewHolder viewHolder;
         if (row == null) {
@@ -115,10 +132,13 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
             viewHolder.line7 = (TextView) row.findViewById(R.id.tamilsalient);
             viewHolder.line8 = (TextView) row.findViewById(R.id.tamilbrief);
            viewHolder.line9 = (TextView) row.findViewById(R.id.tamilfulltext);
+
+
             mProgressDialog = new ProgressDialog(mcontext);
-            mProgressDialog.setMessage("Downloading file..");
-            mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            mProgressDialog.setMessage("Downloading file.. Wait for a While...");
+            mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
             mProgressDialog.setCancelable(false);
+
             //viewHolder.line2 = (TextView) row.findViewById(R.id.bus_location);
             //viewHolder.line3 = (TextView) row.findViewById(R.id.bus_time);
             row.setTag(viewHolder);
@@ -207,23 +227,23 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
 
 
 
-        if (row != null) {
-            TextView line7 = (TextView) row.findViewById(R.id.tamilsalient);
-
-            if (line7 != null)
-                line7.setText(Html.fromHtml(legislationcard.gettamilsalient()).toString());
 
 
 
-        }
+            if (viewHolder.line7 != null)
+                viewHolder.line7.setText(Html.fromHtml(legislationcard.gettamilsalient()).toString());
 
 
-        if (row != null) {
-            TextView line8 = (TextView) row.findViewById(R.id.tamilbrief);
 
-            if (line8 != null)
-                line8.setText(Html.fromHtml(legislationcard.gettamilsalient()).toString());
-        }
+
+
+
+
+
+
+            if (viewHolder.line8 != null)
+                viewHolder.line8.setText(Html.fromHtml(legislationcard.gettamilbrief()).toString());
+
 
 
 
@@ -231,7 +251,7 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
             @Override
             public void onClick(View v) {
                 Link = TamilLegislation.ref_url[position];
-                startDownload();
+                startDownload(position);
             }
         });
         return row;
@@ -256,16 +276,16 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
         TextView line9;
     }
 
-    private void startDownload() {
+    private void startDownload(int position) {
         //String url = "http://farm1.static.flickr.com/114/298125983_0e4bf66782_b.jpg";
-        new DownloadFileAsync().execute(Link);
+        new DownloadFileAsync().execute(Link, position + "");
         mBuilder = new NotificationCompat.Builder(getContext());
-        mBuilder.setContentTitle("Downloading " + "book_id.pdf"+ "...");
+       /* mBuilder.setContentTitle("Downloading " + "book_id.pdf"+ "...");
         mBuilder.setContentText("Download in progress");
-        mBuilder.setSmallIcon(R.drawable.menu);
+        mBuilder.setSmallIcon(R.drawable.download);
         mBuilder.setProgress(0, 0, true);
         mNotifyManager.notify(id, mBuilder.build());
-        mBuilder.setAutoCancel(true);
+        mBuilder.setAutoCancel(true);*/
     }
 
 
@@ -275,7 +295,7 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
         protected void onPreExecute() {
             super.onPreExecute();
             mProgressDialog.show();
-            mProgressDialog.setProgress(DIALOG_DOWNLOAD_PROGRESS);
+            //mProgressDialog.setProgress(DIALOG_DOWNLOAD_PROGRESS);
         }
 
         @Override
@@ -290,9 +310,13 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
 
                 int lenghtOfFile = conexion.getContentLength();
                 Log.d("ANDRO_ASYNC", "Length of file: " + lenghtOfFile);
+                if (MainActivity.years==null)
+                {
+                    MainActivity.years="2016";
+                }
 
                 InputStream input = new BufferedInputStream(url.openStream());
-                OutputStream output = new FileOutputStream("/sdcard/" + "lift.pdf");
+                OutputStream output = new FileOutputStream("/sdcard/" + "Tamillegislation"+ HomeFragment.months+ MainActivity.years+aurl[1]+".pdf");
 
                 byte data[] = new byte[1024];
 
@@ -332,7 +356,7 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
                 mBuilder.setProgress(100, per, false);
                 // Displays the progress bar for the first time.
                 mNotifyManager.notify(id, mBuilder.build());
-                mProgressDialog.setProgress(per);
+                // mProgressDialog.setProgress(per);
                 Log.d("ANDRO_ASYNC", progress[0] + "        " + per + "       " + counter);
             }
         }

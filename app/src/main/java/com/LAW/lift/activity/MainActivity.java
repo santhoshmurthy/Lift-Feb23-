@@ -70,8 +70,10 @@ public class MainActivity extends FragmentActivity {
     public static String[] Published_Month;
     public static String[] month;
     private mainadapter adaps;
-    String months,bookid,yearss;
+    String bookid,yearss;
     ProgressDialog pDialog;
+    public static String months;
+public static String years="2016";
     public static String Language="English";
     String urlJsonArry = "http://www.lawinfingertips.com/webservice/Lift_Final/lift_of_the_month.php?id=1";
     private RelativeLayout mDrawerRelativeLayout;
@@ -119,8 +121,9 @@ public class MainActivity extends FragmentActivity {
 
             bookid = extras.getString("book_id");
             months=extras.getString("month");
+            years=extras.getString("year");
 
-            Log.d("Mainactivity",bookid+months);
+            Log.d("Mainactivity",bookid+months+years);
 
         }
 
@@ -374,6 +377,8 @@ public class MainActivity extends FragmentActivity {
                 fragment = new HomeFragment();
                 bundle3.putString("book_id",bookid);
                 bundle3.putString("month",months);
+                bundle3.putString("year",years);
+                Log.d("ma",bookid+months+years);
                 fragment.setArguments(bundle3);
                 break;
 

@@ -27,6 +27,7 @@ import com.LAW.lift.R;
 import com.LAW.lift.activity.CentralLegislation;
 import com.LAW.lift.activity.MadrasHighcourt;
 import com.LAW.lift.activity.MainActivity;
+import com.LAW.lift.fragments.HomeFragment;
 import com.LAW.lift.model.NLService;
 import com.LAW.lift.model.highcourtcard;
 import com.LAW.lift.model.legislationcard;
@@ -40,6 +41,7 @@ import java.io.OutputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class highcourtadapter extends ArrayAdapter<highcourtcard> {
@@ -52,11 +54,12 @@ public class highcourtadapter extends ArrayAdapter<highcourtcard> {
     String Link;
     String bus_id_item;
     int textViewResourceId;
-
+    Calendar c = Calendar.getInstance();
+    int seconds = c.get(Calendar.SECOND);
     //Map<String, String> addToCartMap = new HashMap<>();
-    File pdfFile = new File(Environment
-            .getExternalStorageDirectory(), "lift.pdf");
 
+    File pdfFile;
+    public int pos;
     NotificationCompat.Builder mBuilder;
     NotificationManager mNotifyManager;
     int id = 1;
@@ -109,6 +112,19 @@ public class highcourtadapter extends ArrayAdapter<highcourtcard> {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
+        pos=position;
+        Log.d("ANDRO_ASYNC", "Central " + position);
+
+
+        if (MainActivity.years==null)
+        {
+            MainActivity.years="2016";
+        }
+        pdfFile = new File(Environment
+                .getExternalStorageDirectory(),"MadrasHighCourt"+ HomeFragment.months+MainActivity.years+position+".pdf");
+
+
+
         View row = convertView;
         CardViewHolder viewHolder;
         if (row == null) {
@@ -124,9 +140,10 @@ public class highcourtadapter extends ArrayAdapter<highcourtcard> {
             viewHolder.line6 = (TextView) row.findViewById(R.id.texthigh);
 
             mProgressDialog = new ProgressDialog(mcontext);
-            mProgressDialog.setMessage("Downloading file..");
-            mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            mProgressDialog.setMessage("Downloading file.. Wait for a While...");
+            mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
             mProgressDialog.setCancelable(false);
+
             //viewHolder.line2 = (TextView) row.findViewById(R.id.bus_location);
             //viewHolder.line3 = (TextView) row.findViewById(R.id.bus_time);
             row.setTag(viewHolder);
@@ -159,7 +176,7 @@ public class highcourtadapter extends ArrayAdapter<highcourtcard> {
 
                     Link = MadrasHighcourt.url[position];
 
-                    startDownload();
+                    startDownload(position);
 
                 }
 
@@ -231,16 +248,16 @@ public class highcourtadapter extends ArrayAdapter<highcourtcard> {
 
     }
 
-    private void startDownload() {
-        new DownloadFileAsync().execute(Link);
+    private void startDownload(int position) {
+        new DownloadFileAsync().execute(Link, position + "");
 
         mBuilder = new NotificationCompat.Builder(getContext());
-        mBuilder.setContentTitle("Downloading " + "book_id.pdf"+ "...");
+        /*mBuilder.setContentTitle("Downloading " + "book_id.pdf"+ "...");
         mBuilder.setContentText("Download in progress");
-        mBuilder.setSmallIcon(R.drawable.menu);
+        mBuilder.setSmallIcon(R.drawable.download);
         mBuilder.setProgress(0, 0, true);
         mNotifyManager.notify(id, mBuilder.build());
-        mBuilder.setAutoCancel(true);
+        mBuilder.setAutoCancel(true);*/
     }
 
     class DownloadFileAsync extends AsyncTask<String, String, String> {
@@ -249,7 +266,8 @@ public class highcourtadapter extends ArrayAdapter<highcourtcard> {
         protected void onPreExecute() {
             super.onPreExecute();
             mProgressDialog.show();
-            mProgressDialog.setProgress(DIALOG_DOWNLOAD_PROGRESS);
+
+
         }
 
         @Override
@@ -264,9 +282,12 @@ public class highcourtadapter extends ArrayAdapter<highcourtcard> {
 
                 int lenghtOfFile = conexion.getContentLength();
                 Log.d("ANDRO_ASYNC", "Length of file: " + lenghtOfFile);
-
+                if (MainActivity.years==null)
+                {
+                    MainActivity.years="2016";
+                }
                 InputStream input = new BufferedInputStream(url.openStream());
-                OutputStream output = new FileOutputStream("/sdcard/" + "lift.pdf");
+                OutputStream output = new FileOutputStream("/sdcard/" + "MadrasHighCourt"+HomeFragment.months+MainActivity.years+aurl[1]+".pdf");
 
                 byte data[] = new byte[1024];
 
@@ -289,7 +310,7 @@ public class highcourtadapter extends ArrayAdapter<highcourtcard> {
 
         protected void onProgressUpdate(String... progress) {
             Log.d("ANDRO_ASYNC", progress[0]);
-            mProgressDialog.setProgress(Integer.parseInt(progress[0]));
+            //  mProgressDialog.setProgress(Integer.parseInt(progress[0]));
             int per = Integer.parseInt(progress[0]);
             //  Log.d("length", "" + len);
             if (per == 100) {
@@ -306,7 +327,7 @@ public class highcourtadapter extends ArrayAdapter<highcourtcard> {
                 mBuilder.setProgress(100, per, false);
                 // Displays the progress bar for the first time.
                 mNotifyManager.notify(id, mBuilder.build());
-                mProgressDialog.setProgress(per);
+                // mProgressDialog.setProgress(per);
                 Log.d("ANDRO_ASYNC", progress[0] + "        " + per + "       " + counter);
             }
             // counter++;

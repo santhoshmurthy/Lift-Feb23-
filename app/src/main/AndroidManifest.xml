@@ -37,7 +37,7 @@
         </activity>
         <activity android:name=".activity.CentralLegislation"
             android:screenOrientation="portrait"
-            android:label="Law in finger tips"
+            android:label="Law In Finger Tips"
             />
         <activity android:name=".activity.Library"
             android:screenOrientation="portrait"
@@ -45,12 +45,9 @@
             />
 
 
-
-
-
         <activity android:name=".activity.SearchActivity"
             android:screenOrientation="portrait"
-            android:label="Law in finger tips"
+            android:label="Law In Finger Tips"
             />
 <activity android:name=".activity.SearchLegislation"
     android:screenOrientation="portrait"
@@ -58,26 +55,26 @@
     />
         <activity android:name=".activity.SearchSupreme"
             android:screenOrientation="portrait"
-            android:label="Law in Finger tips">
+            android:label="Law In Finger Tips">
 
         </activity>
 
         <activity android:name=".activity.MainActivity"
             android:screenOrientation="portrait"
-            android:label="Law in finger tips"
+            android:label="Law In Finger Tips"
             />
         <activity android:name=".activity.TamilLegislation"
             android:screenOrientation="portrait"
-            android:label="Law in finger tips"/>
+            android:label="Law In Finger Tips"/>
         <activity android:name=".activity.Supremecourt"
             android:screenOrientation="portrait"
-            android:label="Law in finger tips"/>
+            android:label="Law In Finger Tips"/>
         <activity android:name=".activity.MadrasHighcourt"
             android:screenOrientation="portrait"
-            android:label="Law in finger tips"/>
+            android:label="Law In Finger tips"/>
         <activity android:name=".activity.Forum"
             android:screenOrientation="portrait"
-            android:label="Law in finger tips"
+            android:label="Law In Finger Tips"
             />
 
 

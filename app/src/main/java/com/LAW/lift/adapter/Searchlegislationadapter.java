@@ -21,8 +21,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.LAW.lift.R;
+import com.LAW.lift.activity.MainActivity;
 import com.LAW.lift.activity.SearchLegislation;
 import com.LAW.lift.activity.TamilLegislation;
+import com.LAW.lift.fragments.HomeFragment;
 import com.LAW.lift.model.NLService;
 import com.LAW.lift.model.Searchlegislationcard;
 import com.LAW.lift.model.legislationcard;
@@ -51,10 +53,10 @@ public class Searchlegislationadapter extends ArrayAdapter<Searchlegislationcard
     Context mcontext;
     String Link;
     //Map<String, String> addToCartMap = new HashMap<>();
-    File pdfFile = new File(Environment
-            .getExternalStorageDirectory(),"lift.pdf");
-    //Map<String, String> addToCartMap = new HashMap<>();
+    public int pos;
 
+    //Map<String, String> addToCartMap = new HashMap<>();
+    File pdfFile;
     NotificationCompat.Builder mBuilder;
     NotificationManager mNotifyManager;
     int id = 1;
@@ -101,6 +103,19 @@ public class Searchlegislationadapter extends ArrayAdapter<Searchlegislationcard
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
+
+        pos=position;
+        Log.d("ANDRO_ASYNC", "Central " + position);
+
+        if (MainActivity.years==null)
+        {
+            MainActivity.years="2016";
+        }
+        pdfFile = new File(Environment
+                .getExternalStorageDirectory(),"SearchLegislation"+ HomeFragment.months+ MainActivity.years+position+".pdf");
+        Log.d("ANDRO_ASYNC", "Central " + HomeFragment.months+HomeFragment.years+position);
+
+
         View row = convertView;
         CardViewHolder viewHolder;
         if (row == null) {
@@ -122,8 +137,8 @@ public class Searchlegislationadapter extends ArrayAdapter<Searchlegislationcard
 
 
             mProgressDialog = new ProgressDialog(mcontext);
-            mProgressDialog.setMessage("Downloading file..");
-            mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            mProgressDialog.setMessage("Downloading file.. Wait for a While...");
+            mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
             mProgressDialog.setCancelable(false);
             //viewHolder.line2 = (TextView) row.findViewById(R.id.bus_location);
             //viewHolder.line3 = (TextView) row.findViewById(R.id.bus_time);
@@ -159,13 +174,25 @@ public class Searchlegislationadapter extends ArrayAdapter<Searchlegislationcard
         viewHolder.line9.setSelected(true);
 
 
-        if (viewHolder.line1 != null)
-            viewHolder.line1.setText(Html.fromHtml(Searchlegislationcard.gettamilname().toString()));
 
-        if (viewHolder.line7 != null)
-            viewHolder.line7.setText(Html.fromHtml(Searchlegislationcard.gettamilsalient().toString()));
-if (viewHolder.line8 != null)
-            viewHolder.line8.setText(Html.fromHtml(Searchlegislationcard.gettamilbrief().toString()));
+
+
+
+
+
+
+
+
+
+        if (viewHolder.line1!= null)
+            viewHolder.line1.setText(Html.fromHtml(Searchlegislationcard.gettamilname()).toString());
+
+
+        if (viewHolder.line7!= null)
+            viewHolder.line7.setText(Html.fromHtml(Searchlegislationcard.gettamilsalient()).toString());
+
+        if (viewHolder.line8!= null)
+            viewHolder.line8.setText(Html.fromHtml(Searchlegislationcard.gettamilbrief()).toString());
 
 
 
@@ -273,7 +300,7 @@ if (viewHolder.line8 != null)
             @Override
             public void onClick(View v) {
                 Link = SearchLegislation.ref_url[position];
-                startDownload();
+                startDownload(position);
             }
         });
 
@@ -302,17 +329,17 @@ if (viewHolder.line8 != null)
 
     }
 
-    private void startDownload() {
+    private void startDownload(int position) {
         //String url = "http://farm1.static.flickr.com/114/298125983_0e4bf66782_b.jpg";
-        new DownloadFileAsync().execute(Link);
+        new DownloadFileAsync().execute(Link, position + "");
 
         mBuilder = new NotificationCompat.Builder(getContext());
-        mBuilder.setContentTitle("Downloading " + "book_id.pdf"+ "...");
+        /*mBuilder.setContentTitle("Downloading " + "book_id.pdf"+ "...");
         mBuilder.setContentText("Download in progress");
         mBuilder.setSmallIcon(R.drawable.menu);
         mBuilder.setProgress(0, 0, true);
         mNotifyManager.notify(id, mBuilder.build());
-        mBuilder.setAutoCancel(true);
+        mBuilder.setAutoCancel(true);*/
     }
 
     class DownloadFileAsync extends AsyncTask<String, String, String> {
@@ -321,7 +348,7 @@ if (viewHolder.line8 != null)
         protected void onPreExecute() {
             super.onPreExecute();
             mProgressDialog.show();
-            mProgressDialog.setProgress(DIALOG_DOWNLOAD_PROGRESS);
+            //  mProgressDialog.setProgress(DIALOG_DOWNLOAD_PROGRESS);
         }
 
         @Override
@@ -336,9 +363,12 @@ if (viewHolder.line8 != null)
 
                 int lenghtOfFile = conexion.getContentLength();
                 Log.d("ANDRO_ASYNC", "Length of file: " + lenghtOfFile);
-
+                if (MainActivity.years==null)
+                {
+                    MainActivity.years="2016";
+                }
                 InputStream input = new BufferedInputStream(url.openStream());
-                OutputStream output = new FileOutputStream("/sdcard/" + "lift.pdf");
+                OutputStream output = new FileOutputStream("/sdcard/" + "SearchLegislation"+HomeFragment.months+MainActivity.years+aurl[1]+".pdf");
 
                 byte data[] = new byte[1024];
 
@@ -378,7 +408,7 @@ if (viewHolder.line8 != null)
                 mBuilder.setProgress(100, per, false);
                 // Displays the progress bar for the first time.
                 mNotifyManager.notify(id, mBuilder.build());
-                mProgressDialog.setProgress(per);
+                // mProgressDialog.setProgress(per);
                 Log.d("ANDRO_ASYNC", progress[0] + "        " + per + "       " + counter);
             }
             // counter++;

@@ -86,7 +86,7 @@ public class CentralLegislation extends Activity {
     String urlJsonArry = "http://www.lawinfingertips.com/webservice/Lift_Final/get_legislation.php?book_id=";
     String half = "&type=central";
     ListView listView;
-    String bookid;
+    String bookid,years;
     String bookname;
     Button button2;
     MyTextviews febcentral;
@@ -130,10 +130,10 @@ public class CentralLegislation extends Activity {
 
             bookid = extras.getString("book_id");
             months = extras.getString("month");
+            years=extras.getString("year");
 
 
-
-            Log.d("central", bookid + months);
+   Log.d("central", bookid + months +years);
             //Toast.makeText(Booking.this,sname+"\n"+slat+"\n"+slong, Toast.LENGTH_SHORT).show();
         }
 

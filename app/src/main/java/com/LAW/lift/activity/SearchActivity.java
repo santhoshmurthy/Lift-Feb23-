@@ -78,10 +78,12 @@ public class SearchActivity extends Activity {
                         Intent i = new Intent(SearchActivity.this, SearchLegislation.class);
                         i.putExtra("Word", word.getText().toString().trim());
                         startActivity(i);
+                        SearchActivity.this.finish();
                     } else if (scase.isChecked()) {
                         Intent i = new Intent(SearchActivity.this, SearchSupreme.class);
                         i.putExtra("Word", word.getText().toString().trim());
                         startActivity(i);
+                        SearchActivity.this.finish();
                     } else
                     {
                         Toast.makeText(SearchActivity.this, "Please Select Any one", Toast.LENGTH_SHORT).show();
@@ -103,9 +105,8 @@ public class SearchActivity extends Activity {
 private CompoundButton.OnCheckedChangeListener listener = new CompoundButton.OnCheckedChangeListener() {
 
         public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
-            if(isChecked){
-                switch(arg0.getId())
-                {
+            if (isChecked) {
+                switch (arg0.getId()) {
                     case R.id.sleg:
                         sleg.setChecked(true);
                         scase.setChecked(false);
@@ -115,15 +116,20 @@ private CompoundButton.OnCheckedChangeListener listener = new CompoundButton.OnC
                         sleg.setChecked(false);
 
 
-
                 }
             }
+
 
         }
     };
 
 
+    @Override
+    public void onBackPressed() {
+        Intent in = new Intent(SearchActivity.this, MainActivity.class);
+        startActivity(in);
 
-
+        SearchActivity.this.finish();
+    }
 
 }

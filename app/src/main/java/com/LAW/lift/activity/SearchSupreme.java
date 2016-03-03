@@ -271,4 +271,10 @@ public class SearchSupreme  extends Activity {
 
         }
     }
+    @Override
+    public void onBackPressed() {
+       /* Intent in = new Intent(SearchLegislation.this, MainActivity.class);
+        startActivity(in);*/
+        finish();
+    }
 }

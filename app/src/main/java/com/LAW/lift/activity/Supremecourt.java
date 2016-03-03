@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.LAW.lift.R;
 import com.LAW.lift.adapter.CardArrayAdapter;
+import com.LAW.lift.adapter.SupremeCardArrayAdapter;
 import com.LAW.lift.adapter.supremeadapter;
 import com.LAW.lift.app.LiftApplication;
 import com.LAW.lift.app.MyVolley;
@@ -24,6 +25,7 @@ import com.LAW.lift.common.AlertDialogManager;
 import com.LAW.lift.common.ConnectionDetector;
 import com.LAW.lift.model.Card;
 import com.LAW.lift.model.MyTextviewWhite;
+import com.LAW.lift.model.SupremecourtCard;
 import com.LAW.lift.model.supremecard;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -68,7 +70,7 @@ public class Supremecourt extends Activity {
     String bookname;
     String months;
     private JSONObject person;
-    private supremeadapter ride;
+    private SupremeCardArrayAdapter ride;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,7 +113,7 @@ public class Supremecourt extends Activity {
         cd = new ConnectionDetector(getApplicationContext());
         listView = (ListView)findViewById(R.id.listView3);
 
-        ride = new supremeadapter(Supremecourt.this, R.layout.supreme);
+        ride = new SupremeCardArrayAdapter(Supremecourt.this, R.layout.supreme);
         listView.setAdapter(ride);
 
 
@@ -195,8 +197,8 @@ public class Supremecourt extends Activity {
                                         months = person.getString("month");
 
 
-                                        supremecard supremecard = new supremecard(titlepara, contextpara, questionpara, answerpara, referencepara, texttouch);
-                                        ride.add(supremecard);
+                                        SupremecourtCard SupremecourtCard = new SupremecourtCard(titlepara, contextpara, questionpara, answerpara, referencepara, texttouch);
+                                        ride.add(SupremecourtCard);
 
                                     }
                                 }

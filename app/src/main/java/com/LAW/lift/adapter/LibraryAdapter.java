@@ -117,6 +117,7 @@ public class LibraryAdapter extends ArrayAdapter<librarycard> {
             //Log.i("Adapter"+"MainActivity"+MainActivity.);
             homeIntent.putExtra("book_id", Library.Id[position]);
             homeIntent.putExtra("month", Library.month[position]);
+            homeIntent.putExtra("year",Library.years);
             homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             getContext().startActivity(homeIntent);
 
