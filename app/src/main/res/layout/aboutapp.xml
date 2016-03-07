@@ -10,8 +10,20 @@
         android:layout_width="400dp"
         android:layout_marginTop="5dp"
         android:layout_height="50dp"
-        android:background="#e59400">
-    <com.LAW.lift.model.MyTextviews
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/rectangle">
+
+
+        <RelativeLayout
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:id="@+id/rl11"
+            android:background="#e59400"
+            >
+
+
+        <com.LAW.lift.model.MyTextviews
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/textView13"
@@ -19,19 +31,23 @@
         android:textSize="25sp"
         android:id="@+id/textView13"
         android:layout_centerInParent="true" />
+            </RelativeLayout>
         </RelativeLayout>
 
 
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="15dp"
         android:layout_below="@+id/rl2">
 
 <RelativeLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/rectangle_box"
     >
 
 
@@ -42,11 +58,11 @@
         android:layout_height="wrap_content"
         android:text="@string/textView11"
         android:layout_gravity="center_vertical|right"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="5dp"
         android:textColor="#1c1c1c"
         android:lineSpacingExtra="4dp"
         android:textSize="18sp"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="5dp"
         android:id="@+id/textView11"/>
 
 
@@ -60,7 +76,7 @@
         android:lineSpacingExtra="4dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="3dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="5dp"
         android:paddingLeft="1dp"
         android:paddingRight="12dp"
         android:layout_below="@+id/textView11"

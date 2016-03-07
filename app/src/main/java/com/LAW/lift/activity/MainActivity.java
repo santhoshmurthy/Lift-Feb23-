@@ -392,27 +392,24 @@ public static String years="2016";
                 startActivity(in);
                 break;
             case 3 :
-                Bundle bundle=new Bundle();
+                Bundle bundle5 = new Bundle();
                 fragment = new AboutFragment();
-                fragment.setArguments(bundle);
+                fragment.setArguments(bundle5);
                 break;
             case 4:
-                Bundle bundles=new Bundle();
+                Bundle bundle4 = new Bundle();
                 fragment = new ContactusFragment();
-                fragment.setArguments(bundles);
-
+                fragment.setArguments(bundle4);
                 break;
             case 5:
                 Bundle bundle2 = new Bundle();
                 fragment = new DisclaimerFragment();
                 fragment.setArguments(bundle2);
-
                 break;
             case 6:
-                Bundle bundle1=new Bundle();
+                Bundle bundle6 = new Bundle();
                 fragment = new HowtouseFragment();
-                fragment.setArguments(bundle1);
-
+                fragment.setArguments(bundle6);
                 break;
 
 

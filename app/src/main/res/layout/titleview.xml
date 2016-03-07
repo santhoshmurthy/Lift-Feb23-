@@ -6,11 +6,11 @@
 
 
     <ImageView
-        android:layout_width="13dp"
-        android:layout_height="13dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:id="@+id/back"
         android:layout_centerVertical="true"
-        android:src="@drawable/arrow"
+        android:src="@drawable/bi"
         />
 
     <com.LAW.lift.model.MyTextviewWhite

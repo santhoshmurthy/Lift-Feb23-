@@ -20,6 +20,7 @@ import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -59,7 +60,7 @@ import java.util.List;
 
 import static android.support.v4.app.ActivityCompat.startActivity;
 
-public class CentralLegislation extends Activity {
+public class CentralLegislation extends Activity implements AdapterView.OnItemClickListener  {
     ImageView back;
     public static String[] get_legislation;
     public static String[] book_id;
@@ -148,6 +149,15 @@ public class CentralLegislation extends Activity {
 
         rideadapter = new CardArrayAdapter(CentralLegislation.this, R.layout.centrallegistation);
         listView.setAdapter(rideadapter);
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(CentralLegislation.this, "Pdf downloaded", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
 
         if (!cd.isConnectingToInternet()) {
@@ -407,5 +417,10 @@ public class CentralLegislation extends Activity {
         startActivity(in);*/
 
      finish();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
     }
 }

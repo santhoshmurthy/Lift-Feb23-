@@ -8,7 +8,17 @@
     android:layout_width="400dp"
     android:layout_marginTop="5dp"
     android:layout_height="50dp"
-    android:background="#e59400">
+
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    android:background="@drawable/rectangle"
+    >
+    <RelativeLayout
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:id="@+id/rl11"
+        android:background="#e59400"
+        >
 
     <com.LAW.lift.model.MyTextviews
         android:layout_width="wrap_content"
@@ -17,22 +27,25 @@
         android:gravity="center"
         android:id="@+id/textView25"
         android:textSize="22sp"
-
-
         android:textColor="#fff"
         android:layout_centerInParent="true"
        />
+        </RelativeLayout>
 </RelativeLayout>
 
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"
         android:layout_below="@+id/rl1">
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rectangle_box"
             >
 
 
@@ -42,7 +55,7 @@
                 android:text="@string/textView21"
                 android:textColor="#4c4c4c"
                 android:textSize="20sp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="1dp"
 
                 android:id="@+id/textView21" />
 
@@ -69,7 +82,7 @@
 
                 android:textColor="#4c4c4c"
                 android:layout_marginTop="12dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="1dp"
                 android:layout_below="@+id/textView22"
                 android:id="@+id/textView23" />
 

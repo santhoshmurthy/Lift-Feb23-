@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -111,6 +112,7 @@ public class MadrasHighcourt extends Activity {
 
         ride2 = new highcourtadapter(MadrasHighcourt.this, R.layout.madras);
         listView.setAdapter(ride2);
+
 
 
         if (!cd.isConnectingToInternet()) {
@@ -270,6 +272,9 @@ public class MadrasHighcourt extends Activity {
         startActivity(in);*/
         finish();
     }
-}
+
+
+    }
+
 
 

@@ -28,7 +28,7 @@ public class ContactusFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        LiftApplication.getInstance().trackScreenView("Contact us");
+
     }
 
 

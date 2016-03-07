@@ -56,7 +56,7 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
     File pdfFile;
     public int pos;
     //Map<String, String> addToCartMap = new HashMap<>();
-
+    public static boolean pdfDownloaded;
 
     //Map<String, String> addToCartMap = new HashMap<>();
 
@@ -113,9 +113,8 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
         {
             MainActivity.years="2016";
         }
-        pdfFile = new File(Environment
-                .getExternalStorageDirectory(),"Tamillegislation"+ HomeFragment.months+MainActivity.years+position+".pdf");
-
+        pdfFile = new File(Environment.getExternalStorageDirectory(),"/Tamillegislation"+ HomeFragment.months+MainActivity.years+position+".pdf");
+        Log.e("highcourtadapter","pdfFile: "+pdfFile);
         View row = convertView;
         CardViewHolder viewHolder;
         if (row == null) {
@@ -278,7 +277,7 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
 
     private void startDownload(int position) {
         //String url = "http://farm1.static.flickr.com/114/298125983_0e4bf66782_b.jpg";
-        new DownloadFileAsync().execute(Link, position + "");
+        new DownloadFileAsync().execute(Link, position + "",pdfFile+"");
         mBuilder = new NotificationCompat.Builder(getContext());
        /* mBuilder.setContentTitle("Downloading " + "book_id.pdf"+ "...");
         mBuilder.setContentText("Download in progress");
@@ -303,7 +302,7 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
             int count;
 
             try {
-
+                Log.e("HighCourtadapter","PdfFile: "+aurl[2]);
                 URL url = new URL(aurl[0]);
                 URLConnection conexion = url.openConnection();
                 conexion.connect();
@@ -316,7 +315,7 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
                 }
 
                 InputStream input = new BufferedInputStream(url.openStream());
-                OutputStream output = new FileOutputStream("/sdcard/" + "Tamillegislation"+ HomeFragment.months+ MainActivity.years+aurl[1]+".pdf");
+                OutputStream output = new FileOutputStream(aurl[2]);
 
                 byte data[] = new byte[1024];
 
@@ -364,14 +363,13 @@ public class legislationadapter extends ArrayAdapter<legislationcard> {
         @Override
         protected void onPostExecute(String unused) {
             mProgressDialog.dismiss();
-
+            pdfDownloaded=true;
             mBuilder.setProgress(0, 0, false);
             Uri path = Uri.fromFile(pdfFile);
-            Intent objIntent = new Intent(Intent.ACTION_VIEW);
-            objIntent.setDataAndType(path, "application/pdf");
-            objIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            mcontext.startActivity(objIntent);
-
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setDataAndType(path, "application/pdf" );
+            mcontext.startActivity(Intent.createChooser(intent, "Open File"));
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 
         }
     }

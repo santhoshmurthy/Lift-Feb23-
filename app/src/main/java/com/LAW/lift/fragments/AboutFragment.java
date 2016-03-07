@@ -27,7 +27,8 @@ public class AboutFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        LiftApplication.getInstance().trackScreenView("About fragment");
+        LiftApplication.getInstance().trackScreenView("About Us");
+
     }
 }
 

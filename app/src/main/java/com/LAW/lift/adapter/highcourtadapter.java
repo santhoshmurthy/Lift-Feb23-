@@ -3,6 +3,7 @@ package com.LAW.lift.adapter;
 import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -65,6 +66,8 @@ public class highcourtadapter extends ArrayAdapter<highcourtcard> {
     int id = 1;
     int counter = 0;
     private NotificationReceiver nReceiver;
+    public static boolean pdfDownloaded;
+
     class NotificationReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -120,10 +123,9 @@ public class highcourtadapter extends ArrayAdapter<highcourtcard> {
         {
             MainActivity.years="2016";
         }
-        pdfFile = new File(Environment
-                .getExternalStorageDirectory(),"MadrasHighCourt"+ HomeFragment.months+MainActivity.years+position+".pdf");
+        pdfFile = new File(Environment.getExternalStorageDirectory(),"/MadrasHighCourt"+HomeFragment.months+MainActivity.years+position+ ".pdf");//HomeFragment.months+MainActivity.years+position+
 
-
+        Log.e("highcourtadapter","pdfFile: "+pdfFile);
 
         View row = convertView;
         CardViewHolder viewHolder;
@@ -249,7 +251,7 @@ public class highcourtadapter extends ArrayAdapter<highcourtcard> {
     }
 
     private void startDownload(int position) {
-        new DownloadFileAsync().execute(Link, position + "");
+        new DownloadFileAsync().execute(Link, position + "",pdfFile+"");
 
         mBuilder = new NotificationCompat.Builder(getContext());
         /*mBuilder.setContentTitle("Downloading " + "book_id.pdf"+ "...");
@@ -259,6 +261,8 @@ public class highcourtadapter extends ArrayAdapter<highcourtcard> {
         mNotifyManager.notify(id, mBuilder.build());
         mBuilder.setAutoCancel(true);*/
     }
+
+
 
     class DownloadFileAsync extends AsyncTask<String, String, String> {
 
@@ -275,6 +279,7 @@ public class highcourtadapter extends ArrayAdapter<highcourtcard> {
             int count;
 
             try {
+                Log.e("HighCourtadapter","PdfFile: "+aurl[2]);
 
                 URL url = new URL(aurl[0]);
                 URLConnection conexion = url.openConnection();
@@ -287,7 +292,11 @@ public class highcourtadapter extends ArrayAdapter<highcourtcard> {
                     MainActivity.years="2016";
                 }
                 InputStream input = new BufferedInputStream(url.openStream());
-                OutputStream output = new FileOutputStream("/sdcard/" + "MadrasHighCourt"+HomeFragment.months+MainActivity.years+aurl[1]+".pdf");
+                OutputStream output = new FileOutputStream(aurl[2]);//"/LIFT/MadrasHighCourt"+MainActivity.years+ ".pdf");
+                 //"/sdcard/" + "MadrasHighCourt"+aurl[1]+".pdf");
+                 //"/sdcard/" + "MadrasHighCourt"+HomeFragment.months+MainActivity.years+aurl[1]+".pdf");
+
+
 
                 byte data[] = new byte[1024];
 
@@ -338,14 +347,26 @@ public class highcourtadapter extends ArrayAdapter<highcourtcard> {
         @Override
         protected void onPostExecute(String unused) {
             mProgressDialog.dismiss();
-
+            pdfDownloaded=true;
             mBuilder.setProgress(0, 0, false);
             Uri path = Uri.fromFile(pdfFile);
-            Intent objIntent = new Intent(Intent.ACTION_VIEW);
+           // Uri path = Uri.parse("file://" + pdfFile.getPath());
+            /*Intent objIntent = new Intent(Intent.ACTION_VIEW);
             objIntent.setDataAndType(path, "application/pdf");
-            objIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            mcontext.startActivity(objIntent);
+           // objIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            //mcontext.startActivity(objIntent);
+            mcontext.startActivity(Intent.createChooser(objIntent, "Open File"));*/
 
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setDataAndType(path, "application/pdf" );
+            mcontext.startActivity(Intent.createChooser(intent, "Open File"));
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+            /*Intent target = Intent.createChooser(intent, "Open File");
+            try {
+                mcontext.startActivity(target);
+            } catch (ActivityNotFoundException e) {
+                Log.e("PDFCreator", "ActivityNotFoundException:" + e);
+            }*/
 
         }
     }

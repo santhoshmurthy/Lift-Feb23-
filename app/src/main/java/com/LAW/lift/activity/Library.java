@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.LAW.lift.R;
 import com.LAW.lift.adapter.CardArrayAdapter;
@@ -177,45 +178,60 @@ public class Library extends Activity {
             spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    final String Url_one[]={"url","url","url","url","url","url","url","url","url","url","url","url"};
-                    final String[] month_one={"month","month","month","month","month","month","month","month","month","month","month","month"};
+                    final String Url_one[] = {"url", "url", "url", "url", "url", "url", "url", "url", "url", "url", "url", "url"};
+                    final String[] month_one = {"month", "month", "month", "month", "month", "month", "month", "month", "month", "month", "month", "month"};
                     years = spinner1.getSelectedItem().toString();
                     selectedyear = spinner1.getSelectedItem().toString();
                     libraryAdapter = new LibraryAdapter(Library.this, R.layout.library);
                     gridView.setAdapter(libraryAdapter);
                     libraryAdapter.clear();
 
+                    if (selectedyear.equals("0")) {
+                        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(Library.this, AlertDialog.THEME_HOLO_LIGHT);
+                        helpBuilder.setTitle("No Content");
+                        helpBuilder.setMessage("No Data available");
+                        helpBuilder.setPositiveButton("OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                        Intent checkIntent = new Intent(Library.this, Library.class);
+                                        startActivity(checkIntent);
+                                        finish();
+                                    }
+                                });
+                        AlertDialog helpDialog = helpBuilder.create();
+                        helpDialog.show();
+                    } else {
+                        RequestQueue queue1 = MyVolley.getRequestQueue();
 
-                    RequestQueue queue1 = MyVolley.getRequestQueue();
+                        JsonObjectRequest req1 = new JsonObjectRequest(urlJsonArry + selectedyear, null,
+                                new Response.Listener<JSONObject>() {
+                                    @Override
+                                    public void onResponse(JSONObject response) {
 
-                    JsonObjectRequest req1 = new JsonObjectRequest(urlJsonArry + selectedyear, null,
-                            new Response.Listener<JSONObject>() {
-                                @Override
-                                public void onResponse(JSONObject response) {
+                                        try {
+                                            Log.e("Library", "response.get_all_book" + response + selectedyear);
 
-                                    try {
-                                        Log.e("Library", "response.get_all_book" + response + selectedyear);
+                                            JSONObject jobject = response;
 
-                                        JSONObject jobject = response;
+                                            JSONArray jsonMainArr = jobject.getJSONArray("get_all_book");
 
-                                        JSONArray jsonMainArr = jobject.getJSONArray("get_all_book");
-
-                                        Id = new String[jsonMainArr.length()];
-                                        Book_Name = new String[jsonMainArr.length()];
-                                        Url = new String[jsonMainArr.length()];
-                                        Published_Month = new String[jsonMainArr.length()];
-                                        month = new String[jsonMainArr.length()];
+                                            Id = new String[jsonMainArr.length()];
+                                            Book_Name = new String[jsonMainArr.length()];
+                                            Url = new String[jsonMainArr.length()];
+                                            Published_Month = new String[jsonMainArr.length()];
+                                            month = new String[jsonMainArr.length()];
 
 
-                                        for (int i = 0; i < jsonMainArr.length(); i++) {
+                                            for (int i = 0; i < jsonMainArr.length(); i++) {
 
-                                            JSONObject person = (JSONObject) jsonMainArr.get(i);
+                                                JSONObject person = (JSONObject) jsonMainArr.get(i);
 
-                                            Id[i] = person.getString("Id");
-                                            Book_Name[i] = person.getString("Book_Name");
-                                            Url[i] = person.getString("Url");
-                                            Published_Month[i] = person.getString("Published_Month");
-                                            month[i] = person.getString("month");
+                                                Id[i] = person.getString("Id");
+                                                Book_Name[i] = person.getString("Book_Name");
+                                                Url[i] = person.getString("Url");
+                                                Published_Month[i] = person.getString("Published_Month");
+                                                month[i] = person.getString("month");
 
 
 
@@ -223,57 +239,59 @@ public class Library extends Activity {
                                         =month[i];*/
 
 
-                                            retimag = person.getString("Url");
-                                            monthtext = person.getString("month");
+                                                retimag = person.getString("Url");
+                                                monthtext = person.getString("month");
 
 
-                                        }
-                                        for (int i = 0; i < jsonMainArr.length(); i++) {
-                                            Url_one[i] = Url[i];
-                                            month_one[i] = month[i];
-                                        }
-                                        for (int i = 0; i < 12; i++) {
-                                            librarycard librarycard = new librarycard(Url_one[i], month_one[i]);
-                                            libraryAdapter.add(librarycard);
+                                            }
+                                            for (int i = 0; i < jsonMainArr.length(); i++) {
+                                                Url_one[i] = Url[i];
+                                                month_one[i] = month[i];
+                                            }
+                                            for (int i = 0; i < 12; i++) {
+                                                librarycard librarycard = new librarycard(Url_one[i], month_one[i]);
+                                                libraryAdapter.add(librarycard);
+                                                if (pDialog.isShowing())
+                                                    pDialog.dismiss();
+                                            }
+                                            Log.d("liblib", "" + Url[1] + "  " + Url_one[1]);
+
+
+                                            //mTvResult.setText(jsonResponse);
+
+                                        } catch (RuntimeException e) {
+                                            e.printStackTrace();
+                                            if (pDialog.isShowing())
+                                                pDialog.dismiss();
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                            LiftApplication.getInstance().trackException(e);
+
                                             if (pDialog.isShowing())
                                                 pDialog.dismiss();
                                         }
-                                        Log.d("liblib", "" + Url[1] + "  " + Url_one[1]);
-
-
-                                        //mTvResult.setText(jsonResponse);
-
-                                    } catch (RuntimeException e) {
-                                        e.printStackTrace();
                                         if (pDialog.isShowing())
                                             pDialog.dismiss();
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                        LiftApplication.getInstance().trackException(e);
 
-                                        if (pDialog.isShowing())
-                                            pDialog.dismiss();
                                     }
-                                    if (pDialog.isShowing())
-                                        pDialog.dismiss();
-                                }
 
-                            }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            if (pDialog.isShowing())
-                                pDialog.dismiss();
-                            Log.e("Hiistory", "error  " + error);
-                            // listView.setVisibility(View.GONE);
-                        }
+                                }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                if (pDialog.isShowing())
+                                    pDialog.dismiss();
+                                Log.e("Hiistory", "error  " + error);
+                                // listView.setVisibility(View.GONE);
+                            }
 
 
-                    });
-                    queue1.add(req1);
-                    gridView.setAdapter(libraryAdapter);
+                        });
+                        queue1.add(req1);
+                        gridView.setAdapter(libraryAdapter);
 
-                    if (pDialog.isShowing())
-                        pDialog.dismiss();
+                        if (pDialog.isShowing())
+                            pDialog.dismiss();
+                    }
                 }
 
                 @Override
